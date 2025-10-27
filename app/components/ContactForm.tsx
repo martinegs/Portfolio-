@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,11 +18,25 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simular envío (aquí puedes integrar con un servicio como EmailJS, Formspree, etc.)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      // EmailJS integration
+      const result = await emailjs.send(
+        "TU_SERVICE_ID", // <-- pon aquí tu Service ID
+        "TU_TEMPLATE_ID", // <-- pon aquí tu Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "TU_PUBLIC_KEY" // <-- pon aquí tu Public Key
+      );
+      if (result.status === 200) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
     } catch (error) {
       setSubmitStatus("error");
     } finally {

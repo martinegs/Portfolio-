@@ -76,16 +76,6 @@ export default function ProjectCard({
             Ver Código
           </a>
         </div>
-
-        {/* Case Study Link */}
-        {caseStudyUrl && (
-          <Link
-            href={caseStudyUrl}
-            className="block mt-3 text-blue-600 hover:text-blue-700 text-sm font-medium text-center"
-          >
-            Ver Estudio de Caso →
-          </Link>
-        )}
       </div>
     </div>
   );

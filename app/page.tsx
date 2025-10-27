@@ -7,45 +7,40 @@ export default function Home() {
   // Datos de proyectos (puedes modificarlos según tus proyectos reales)
   const projects = [
     {
-      title: "Sistema de Gestión DigitalTex",
-      description: "Sistema interno de gestión para empresa textil desarrollado con CodeIgniter y PHP 7. Incluye módulos de inventario, ventas y reportes.",
-      technologies: ["PHP", "CodeIgniter", "MySQL", "jQuery", "Bootstrap"],
-      image: "/projects/project1.jpg",
-  githubUrl: "https://github.com/martinegs/proyecto1",
-      caseStudyUrl: "/proyectos/digitaltex"
+      title: "Sistema de Monitoreo de Órdenes en Tiempo Real",
+      description: "Aplicación web full-stack para gestión y monitoreo de órdenes de servicio con sincronización en tiempo real vía SSE, CRUD completo, métricas financieras diarias, análisis de recaudación y dashboard interactivo. Incluye autenticación con migración automática de contraseñas legacy, filtros avanzados y visualización de estados de pago.",
+      technologies: ["Node.js", "Express", "Vue 3", "MySQL", "SSE", "JWT", "Vite"],
+      image: "/projects/ordenestiemporeal.png",
+      githubUrl: "https://github.com/martinegs/os-live-vue"
     },
     {
-      title: "API REST con Laravel",
-      description: "API RESTful completa con autenticación JWT, documentación Swagger y tests unitarios. Gestión de usuarios y recursos.",
-      technologies: ["Laravel", "PHP", "MySQL", "JWT", "Swagger"],
-      image: "/projects/project2.jpg",
-      demoUrl: "https://tu-proyecto.herokuapp.com",
-  githubUrl: "https://github.com/martinegs/proyecto2",
-      caseStudyUrl: "/proyectos/api-laravel"
+      title: "Sistema de Gestión de Tareas Pendientes",
+      description: "Aplicación web full-stack para gestión de tareas con CRUD completo, filtros avanzados, búsqueda en tiempo real y dashboard con estadísticas. Interfaz moderna y responsiva con validación robusta.",
+      technologies: ["Laravel", "PHP 8.1+", "Bootstrap 5", "SQLite", "Blade"],
+      image: "/projects/tareas.png",
+      githubUrl: "https://github.com/martinegs/notasLaravel",
+      caseStudyUrl: "/proyectos/tareas-pendientes"
     },
     {
-      title: "Sistema de Tareas con Node.js",
-      description: "Aplicación de gestión de tareas con autenticación, notificaciones en tiempo real y panel de administración.",
-  technologies: ["Node.js", "Express", "MongoDB", "Vue.js", "Socket.io"],
-      image: "/projects/project3.jpg",
-      demoUrl: "https://tu-proyecto.railway.app",
-  githubUrl: "https://github.com/martinegs/proyecto3",
-      caseStudyUrl: "/proyectos/task-manager"
+      title: "Red Social tipo Twitter",
+      description: "Red social web tipo Twitter, desarrollada en Laravel, que permite a los usuarios registrarse, publicar mensajes, seguir a otros, dar 'me gusta' y gestionar su perfil. Incluye autenticación, timeline personalizado, sistema de seguidores, subida de imágenes, y panel de usuario. Todo el sistema está completamente en español y cuenta con interfaz responsiva y profesional.",
+      technologies: ["Laravel", "Blade", "Eloquent ORM", "SQLite", "Tailwind CSS", "Vite"],
+      image: "/projects/redSocial.png",
+      githubUrl: "https://github.com/martinegs/redSocial"
     },
     {
-      title: "E-commerce con Laravel",
-      description: "Plataforma de comercio electrónico con carrito de compras, pasarela de pagos y panel de administración completo.",
-      technologies: ["Laravel", "PHP", "MySQL", "Tailwind", "Stripe"],
-      image: "/projects/project4.jpg",
-  githubUrl: "https://github.com/martinegs/proyecto4",
-      caseStudyUrl: "/proyectos/ecommerce"
-    }
+      title: "Supermercado Online",
+      description: "Sistema completo de eCommerce para supermercado con catálogo de productos, carrito de compras y gestión de pedidos. Incluye 44 productos reales con precios en pesos argentinos.",
+      technologies: ["Laravel", "PHP", "SQLite", "Bootstrap", "Blade"],
+      image: "/projects/supermercado.png",
+      githubUrl: "https://github.com/martinegs/ecommerceLaravel"
+    },
   ];
 
   const skills = [
     { category: "Backend", items: ["PHP", "Laravel", "CodeIgniter", "Node.js", "Express"] },
-  { category: "Frontend", items: ["Vue.js", "JavaScript", "jQuery", "HTML5", "CSS3"] },
-    { category: "Bases de Datos", items: ["MySQL", "MongoDB", "SQL", "NoSQL"] },
+    { category: "Frontend", items: ["Vue.js", "JavaScript", "jQuery", "HTML5", "CSS3"] },
+    { category: "Bases de Datos", items: ["MySQL", "MongoDB"] },
     { category: "Herramientas", items: ["Git", "Docker", "Postman", "VS Code"] },
     { category: "Frameworks CSS", items: ["Tailwind CSS", "Bootstrap"] }
   ];

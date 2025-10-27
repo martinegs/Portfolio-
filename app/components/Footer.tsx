@@ -1,7 +1,12 @@
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-gray-900 text-gray-300 py-12">
@@ -92,7 +97,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {currentYear} Martin Gonzalez. Todos los derechos reservados.</p>
+          <p>&copy; {currentYear ?? ""} Martin Gonzalez. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
