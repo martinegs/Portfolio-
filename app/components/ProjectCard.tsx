@@ -7,8 +7,9 @@ interface ProjectCardProps {
   technologies: string[];
   image: string;
   demoUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
   caseStudyUrl?: string;
+  hideGithub?: boolean;
 }
 
 export default function ProjectCard({
@@ -19,6 +20,7 @@ export default function ProjectCard({
   demoUrl,
   githubUrl,
   caseStudyUrl,
+  hideGithub,
 }: ProjectCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -32,7 +34,7 @@ export default function ProjectCard({
         />
         {/* Technology Badge */}
         <div className="absolute top-4 right-4">
-          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">
             {technologies[0]}
           </span>
         </div>
@@ -62,19 +64,21 @@ export default function ProjectCard({
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex-1 bg-purple-500 text-white text-center py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors"
             >
               Ver Demo
             </a>
           )}
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 border border-gray-300 text-gray-700 text-center py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Ver Código
-          </a>
+          {!hideGithub && (typeof githubUrl !== 'undefined') && (
+            <a
+              href={githubUrl || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-gray-300 text-gray-700 text-center py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Ver Código
+            </a>
+          )}
         </div>
       </div>
     </div>
