@@ -12,8 +12,8 @@ export default function Home() {
   const projects = [
     {
       title: "Sistema de Monitoreo de Órdenes en Tiempo Real",
-      description: "Aplicación web full-stack para gestión y monitoreo de órdenes de servicio con sincronización en tiempo real vía SSE, CRUD completo, métricas financieras diarias, análisis de recaudación y dashboard interactivo. Incluye autenticación con migración automática de contraseñas legacy y filtros avanzados.",
-      technologies: ["Node.js", "Express", "Vue 3", "MySQL", "SSE", "JWT", "Vite"],
+      description: "Aplicación web full-stack para gestión y monitoreo de órdenes de servicio con sincronización en tiempo real vía SSE, CRUD completo, métricas financieras diarias, análisis de recaudación y dashboard interactivo. Incluye autenticación y filtros avanzados.",
+      technologies: ["PHP", "Laravel", "Vue 3", "MySQL", "SSE", "JWT", "Vite"],
       category: "Full-Stack",
       image: "/projects/ordenestiemporeal.png",
       githubUrl: "https://github.com/martinegs/os-live-vue"
@@ -63,22 +63,22 @@ export default function Home() {
     {
       category: "Backend",
       icon: "⚙️",
-      items: ["PHP 8+", "Laravel", "CodeIgniter", "Node.js", "Express", "REST APIs"]
+      items: ["PHP 8+", "Laravel", "CodeIgniter", "APIs REST", "Arquitectura MVC"]
     },
     {
       category: "Frontend",
       icon: "🎨",
-      items: ["Vue.js 3", "React", "JavaScript (ES6+)", "TypeScript", "HTML5 & CSS3", "Tailwind CSS", "Bootstrap"]
+      items: ["Vue.js", "HTMX", "JavaScript (ES6+)", "jQuery", "Tailwind CSS", "Bootstrap", "HTML5 & CSS3"]
     },
     {
       category: "Bases de Datos",
       icon: "🗄️",
-      items: ["MySQL", "SQLite", "MongoDB"]
+      items: ["MySQL", "PostgreSQL", "SQLite"]
     },
     {
       category: "Herramientas & Entorno",
       icon: "🛠️",
-      items: ["Git & GitHub", "Docker", "Postman", "Vite", "Vercel", "Linux"]
+      items: ["Git & GitHub", "Docker", "Postman", "Vite", "Linux"]
     }
   ];
 
@@ -96,7 +96,7 @@ export default function Home() {
           {/* Status Pills */}
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-purple-300 mb-8 shadow-lg">
             <span className="w-2 h-2 rounded-full bg-purple-400 animate-ping" />
-            <span>Desarrollador Full Stack JR & Estudiante de Lic. en Sistemas</span>
+            <span>Desarrollador Backend PHP | Laravel & CodeIgniter | Full Stack (Vue.js)</span>
           </div>
 
           {/* Main Title */}
@@ -106,7 +106,7 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-            Especializado en backend con <strong className="text-purple-400 font-semibold">PHP (Laravel, CodeIgniter)</strong> y <strong className="text-blue-400 font-semibold">Node.js</strong>, integrando interfaces modernas y reactivas en <strong className="text-emerald-400 font-semibold">Vue.js / React</strong>.
+            Desarrollador enfocado en backend con <strong className="text-purple-400 font-semibold">PHP (Laravel & CodeIgniter)</strong>, construyendo lógica limpia y eficiente e interfaces funcionales con <strong className="text-emerald-400 font-semibold">Vue.js, Tailwind y Bootstrap</strong>.
           </p>
 
           {/* Action Buttons */}
@@ -186,7 +186,7 @@ export default function Home() {
               Sobre Mí & Experiencia
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-base">
-              Estudiante universitario apasionado por la construcción de sistemas robustos, la optimización de código y la resolución práctica de problemas reales.
+              Soy un desarrollador enfocado en resolver problemas. Me gusta que el código sea prolijo y la lógica de fondo eficiente.
             </p>
           </div>
 
@@ -195,20 +195,20 @@ export default function Home() {
             <div className="bg-[#0f172a]/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl space-y-4 shadow-xl">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">👨‍💻</span>
-                <h3 className="text-xl font-bold text-white">Mi Enfoque Profesional</h3>
+                <h3 className="text-xl font-bold text-white">Mi Filosofía de Trabajo</h3>
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Soy estudiante de la Licenciatura en Sistemas en la Universidad Champagnat. Mi pasión principal reside en la arquitectura backend, optimización de consultas SQL y diseño de APIs seguras y escalables.
+                Hace un tiempo que estoy metido de lleno en el desarrollo web. No me quedo solo con que las cosas "funcionen", sino que me enfoco en que el código sea mantenible y la lógica backend altamente eficiente.
               </p>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Actualmente desarrollo y mantengo módulos en <strong className="text-purple-300">DigitalTex</strong>, aplicando buenas prácticas en PHP (CodeIgniter), Vue.js, MySQL y entornos contenedorizados con Docker.
+                Actualmente estudio la <strong className="text-purple-300">Licenciatura en Sistemas</strong> y trabajo en el día a día con <strong className="text-purple-300">Laravel y CodeIgniter</strong>, que es donde más cómodo me siento. En DigitalTex y Necta me encargo de que los sistemas no solo aguanten el uso, sino que mejoren constantemente.
               </p>
               <div className="pt-4 border-t border-white/10 flex flex-wrap gap-3">
                 <span className="text-xs bg-purple-500/10 text-purple-300 border border-purple-500/20 px-3 py-1 rounded-full font-medium">
                   📍 Mendoza, Argentina
                 </span>
                 <span className="text-xs bg-blue-500/10 text-blue-300 border border-blue-500/20 px-3 py-1 rounded-full font-medium">
-                  🎓 Lic. en Sistemas (Champagnat)
+                  🎓 Lic. en Sistemas (Universidad Champagnat)
                 </span>
               </div>
             </div>
@@ -217,37 +217,47 @@ export default function Home() {
             <div className="bg-[#0f172a]/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">💼</span>
-                <h3 className="text-xl font-bold text-white">Trayectoria Destacada</h3>
+                <h3 className="text-xl font-bold text-white">Experiencia Laboral</h3>
               </div>
 
               <div className="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-white/10">
-                {/* Item 1 */}
-                <div className="relative pl-8">
-                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-950" />
-                  <h4 className="text-base font-semibold text-white">Desarrollador Web Full Stack</h4>
-                  <p className="text-purple-400 text-xs font-medium">DigitalTex • Octubre 2024 - Presente</p>
-                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">
-                    Mantenimiento y desarrollo de funcionalidades en el sistema de gestión interno con PHP/CodeIgniter, Vue.js, MySQL, Docker y Git.
-                  </p>
-                </div>
-
-                {/* Item 2 */}
-                <div className="relative pl-8">
-                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-950" />
-                  <h4 className="text-base font-semibold text-white">Actualización de ERP Corporativo</h4>
-                  <p className="text-blue-400 text-xs font-medium">Proyecto Freelance • Octubre 2025 - Diciembre 2025</p>
-                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">
-                    Refactorización de procesos backend en PHP, integración de UI responsiva con jQuery/Bootstrap y optimización de flujos de datos.
-                  </p>
-                </div>
-
-                {/* Item 3 */}
+                {/* Necta */}
                 <div className="relative pl-8">
                   <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-950" />
-                  <h4 className="text-base font-semibold text-white">Licenciatura en Sistemas</h4>
-                  <p className="text-emerald-400 text-xs font-medium">Universidad Champagnat • 2021 - Presente</p>
+                  <h4 className="text-base font-semibold text-white">Desarrollador Full Stack</h4>
+                  <p className="text-emerald-400 text-xs font-medium">Necta • Enero 2026 - Presente</p>
                   <p className="text-gray-400 text-xs mt-1 leading-relaxed">
-                    Formación universitaria en estructuras de datos, diseño de software, bases de datos y redes.
+                    Jornada completa • Presencial (Mendoza, Argentina). Liderazgo de delivery crítico, lógica backend con Laravel, refactorizaciones y mejora continua.
+                  </p>
+                </div>
+
+                {/* Digitaltex */}
+                <div className="relative pl-8">
+                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-950" />
+                  <h4 className="text-base font-semibold text-white">Desarrollador Full Stack</h4>
+                  <p className="text-purple-400 text-xs font-medium">DigitalTex • Octubre 2024 - Diciembre 2025</p>
+                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                    1 año 3 meses • Remoto. Desarrollo y mantenimiento de sistema web a medida utilizando PHP y CodeIgniter para optimizar la gestión de procesos internos, inventario y experiencia del cliente (MySQL, Vue.js).
+                  </p>
+                </div>
+
+                {/* P&L Corp */}
+                <div className="relative pl-8">
+                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-950" />
+                  <h4 className="text-base font-semibold text-white">Digitalizador</h4>
+                  <p className="text-blue-400 text-xs font-medium">P&L CORP. • Noviembre 2024 - Enero 2025</p>
+                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                    Digitalización de documentos corporativos, escáners y Adobe Acrobat.
+                  </p>
+                </div>
+
+                {/* Educación */}
+                <div className="relative pl-8">
+                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-950" />
+                  <h4 className="text-base font-semibold text-white">Licenciatura en Sistemas de Información</h4>
+                  <p className="text-indigo-400 text-xs font-medium">Universidad Champagnat • Mar 2021 - Presente</p>
+                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                    Computer Software and Media Applications, estructuras de datos, arquitectura de sistemas y control de versiones.
                   </p>
                 </div>
               </div>
@@ -257,7 +267,7 @@ export default function Home() {
           {/* Technical Skills */}
           <div>
             <h3 className="text-2xl font-bold text-white mb-8 text-center">
-              Stack Tecnológico & Habilidades
+              Aptitudes & Tecnologías
             </h3>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -296,7 +306,7 @@ export default function Home() {
               Proyectos Destacados
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-base">
-              Explorá algunos de los sistemas y aplicaciones full-stack que he construido recientemente.
+              Una selección de proyectos backend y full-stack construidos con Laravel, CodeIgniter y PHP.
             </p>
 
             {/* Filter Tabs */}
@@ -334,7 +344,7 @@ export default function Home() {
               Contacto & Colaboración
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto text-base">
-              ¿Buscás sumar un desarrollador proactivo a tu equipo o tenés una propuesta? ¡Escribime y lo conversamos!
+              ¿Buscás a alguien que se ponga la camiseta del proyecto y resuelva? ¡Charlemos!
             </p>
           </div>
 
@@ -349,7 +359,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold text-white text-sm">Ubicación</h4>
                     <p className="text-gray-300 text-xs mt-0.5">Mendoza, Argentina</p>
-                    <p className="text-xs text-purple-400 mt-1">Abierto a trabajo remoto o relocalización</p>
+                    <p className="text-xs text-purple-400 mt-1">Presencial / Remoto</p>
                   </div>
                 </div>
               </div>
@@ -403,4 +413,5 @@ export default function Home() {
     </div>
   );
 }
+
 

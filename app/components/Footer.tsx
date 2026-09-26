@@ -23,8 +23,9 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Desarrollador Full Stack JR enfocado en construir aplicaciones web eficientes, escalables y bien estructuradas con PHP (Laravel, CodeIgniter), Node.js, Vue y React.
+              Desarrollador Backend PHP especializado en Laravel & CodeIgniter, integrando interfaces modernas con Vue.js, Tailwind CSS y Bootstrap.
             </p>
+
           </div>
 
           {/* Quick Links */}

@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Martin Gonzalez | Desarrollador Full Stack JR",
-  description: "Portafolio profesional de Martin Gonzalez, Desarrollador Full Stack JR especializado en PHP (Laravel, CodeIgniter), Node.js, Vue.js y React. Mendoza, Argentina.",
-  keywords: ["Desarrollador Full Stack", "PHP", "Laravel", "CodeIgniter", "Node.js", "Vue.js", "React", "Martin Gonzalez", "Mendoza", "Portfolio"],
+  title: "Martin Gonzalez | Desarrollador Backend PHP & Full Stack",
+  description: "Portafolio profesional de Martin Gonzalez, Desarrollador Backend PHP especializado en Laravel & CodeIgniter, Vue.js y arquitectura de sistemas. Mendoza, Argentina.",
+  keywords: ["Desarrollador Backend", "PHP", "Laravel", "CodeIgniter", "Vue.js", "MySQL", "PostgreSQL", "Martin Gonzalez", "Mendoza", "Portfolio"],
   authors: [{ name: "Martin Gonzalez", url: "https://github.com/martinegs" }],
   openGraph: {
-    title: "Martin Gonzalez - Desarrollador Full Stack JR",
-    description: "Desarrollo soluciones eficientes, escalables y modernas para la web con PHP, Node.js, Vue y React.",
+    title: "Martin Gonzalez - Desarrollador Backend PHP",
+    description: "Desarrollo soluciones backend eficientes, escalables y mantenibles con PHP (Laravel, CodeIgniter) y Vue.js.",
     type: "website",
     locale: "es_AR",
     url: "https://github.com/martinegs",
@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
+
 
 export default function RootLayout({
   children,
