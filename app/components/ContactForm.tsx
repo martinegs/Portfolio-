@@ -18,17 +18,15 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // If EmailJS env/keys are not configured, open default mail client as smooth fallback
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "TU_SERVICE_ID";
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "TU_TEMPLATE_ID";
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "TU_PUBLIC_KEY";
 
     if (serviceId === "TU_SERVICE_ID" || publicKey === "TU_PUBLIC_KEY") {
-      // Direct mailto fallback
       const mailtoUrl = `mailto:Martinegs2012@gmail.com?subject=${encodeURIComponent(
-        formData.subject || "Consulta desde Portfolio"
+        formData.subject || "Pergamino desde Portfolio AoE2"
       )}&body=${encodeURIComponent(
-        `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
+        `Mensajero: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
       )}`;
       window.open(mailtoUrl, "_blank");
       setSubmitStatus("success");
@@ -72,11 +70,23 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 bg-[#0f172a]/60 backdrop-blur-xl border border-white/10 p-6 sm:p-8 rounded-2xl shadow-xl">
+    <form onSubmit={handleSubmit} className="space-y-5 bg-[#1c1917]/90 border-2 border-amber-700/60 p-6 sm:p-8 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.9)] relative">
+      {/* Corner Ornaments */}
+      <div className="absolute top-2 left-2 text-[10px] text-amber-500/50">❖</div>
+      <div className="absolute top-2 right-2 text-[10px] text-amber-500/50">❖</div>
+      <div className="absolute bottom-2 left-2 text-[10px] text-amber-500/50">❖</div>
+      <div className="absolute bottom-2 right-2 text-[10px] text-amber-500/50">❖</div>
+
+      <div className="border-b border-amber-800/60 pb-3 mb-4 text-center">
+        <h3 className="text-lg font-bold text-amber-200 font-serif uppercase tracking-widest flex items-center justify-center gap-2">
+          <span>📜</span> Enviar Pergamino Mensajero
+        </h3>
+      </div>
+
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-          Nombre Completo
+        <label htmlFor="name" className="block text-xs font-semibold text-amber-300 uppercase tracking-wider mb-2 font-serif">
+          Nombre del Emisario
         </label>
         <input
           type="text"
@@ -85,15 +95,15 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 outline-none transition text-sm"
-          placeholder="Ej: Juan Pérez"
+          className="w-full px-4 py-3 bg-black/60 border border-amber-700/50 rounded-lg text-amber-100 placeholder-stone-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-400 outline-none transition text-sm font-sans"
+          placeholder="Ej: Lord William / Tu Nombre"
         />
       </div>
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-          Correo Electrónico
+        <label htmlFor="email" className="block text-xs font-semibold text-amber-300 uppercase tracking-wider mb-2 font-serif">
+          Correo Electrónico de la Casa
         </label>
         <input
           type="email"
@@ -102,15 +112,15 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 outline-none transition text-sm"
-          placeholder="tu@correo.com"
+          className="w-full px-4 py-3 bg-black/60 border border-amber-700/50 rounded-lg text-amber-100 placeholder-stone-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-400 outline-none transition text-sm font-sans"
+          placeholder="tu@reino.com"
         />
       </div>
 
       {/* Subject */}
       <div>
-        <label htmlFor="subject" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-          Asunto
+        <label htmlFor="subject" className="block text-xs font-semibold text-amber-300 uppercase tracking-wider mb-2 font-serif">
+          Asunto del Decreto
         </label>
         <input
           type="text"
@@ -119,15 +129,15 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 outline-none transition text-sm"
-          placeholder="Ej: Propuesta de proyecto / Oportunidad laboral"
+          className="w-full px-4 py-3 bg-black/60 border border-amber-700/50 rounded-lg text-amber-100 placeholder-stone-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-400 outline-none transition text-sm font-sans"
+          placeholder="Ej: Propuesta de Alianza / Proyecto Web"
         />
       </div>
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-          Mensaje
+        <label htmlFor="message" className="block text-xs font-semibold text-amber-300 uppercase tracking-wider mb-2 font-serif">
+          Contenido del Pergamino
         </label>
         <textarea
           id="message"
@@ -136,8 +146,8 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={4}
-          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 outline-none transition resize-none text-sm"
-          placeholder="Escribe tu mensaje o consulta..."
+          className="w-full px-4 py-3 bg-black/60 border border-amber-700/50 rounded-lg text-amber-100 placeholder-stone-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-400 outline-none transition resize-none text-sm font-sans"
+          placeholder="Escribe tu propuesta o mensaje para el castillo..."
         />
       </div>
 
@@ -145,38 +155,31 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center justify-center gap-2"
+        className="w-full bg-gradient-to-b from-amber-500 via-amber-600 to-amber-800 hover:from-amber-400 hover:to-amber-700 text-amber-950 font-extrabold py-3.5 px-6 rounded-lg shadow-xl hover:shadow-amber-500/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider font-serif border border-amber-300/60 flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
-          <>
-            <svg className="animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            <span>Enviando mensaje...</span>
-          </>
+          <span>🕊️ Despachando Palomo Mensajero...</span>
         ) : (
           <>
-            <span>Enviar Mensaje</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>🕊️ Despachar Pergamino</span>
+            <span>➔</span>
           </>
         )}
       </button>
 
       {/* Status Messages */}
       {submitStatus === "success" && (
-        <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-xs text-center font-medium animate-in fade-in">
-          ✅ ¡Mensaje preparado/enviado con éxito! Gracias por contactarme.
+        <div className="p-4 bg-amber-950/80 border border-amber-500 rounded-lg text-amber-200 text-xs text-center font-serif animate-in fade-in">
+          ✅ ¡Pergamino enviado con éxito! El Palomo Mensajero va en camino.
         </div>
       )}
       {submitStatus === "error" && (
-        <div className="p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400 text-xs text-center font-medium animate-in fade-in">
-          ⚠️ Ocurrió un inconveniente. Podés escribirme directamente a <a href="mailto:Martinegs2012@gmail.com" className="underline">Martinegs2012@gmail.com</a>.
+        <div className="p-4 bg-red-950/80 border border-red-500 rounded-lg text-red-200 text-xs text-center font-serif animate-in fade-in">
+          ⚠️ Ocurrió una interrupción. Escribe directamente al maestre: <a href="mailto:Martinegs2012@gmail.com" className="underline">Martinegs2012@gmail.com</a>.
         </div>
       )}
     </form>
   );
 }
+
 
