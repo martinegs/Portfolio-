@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProjectCard from "./components/ProjectCard";
@@ -9,31 +8,18 @@ import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("Todos");
-  const [activeTaunt, setActiveTaunt] = useState<string | null>(null);
-
-  const taunts = [
-    { code: "11", label: "Risas (11)", message: "¡Jajaja! Un bug menos en producción." },
-    { code: "30", label: "Wololo! (30)", message: "¡Wololo! Tu código spaghetti ahora es Laravel prolijo." },
-    { code: "14", label: "Empiecen ya! (14)", message: "¡A construir el backend sin demora!" },
-    { code: "1", font: "bold", label: "Sí (1)", message: "¡Entendido, mi lord!" },
-  ];
-
-  const handleTaunt = (msg: string) => {
-    setActiveTaunt(msg);
-    setTimeout(() => setActiveTaunt(null), 3500);
-  };
 
   const projects = [
     {
-      title: "Castillo de Monitoreo de Órdenes en Tiempo Real",
-      description: "Aplicación web full-stack para gestión y monitoreo de órdenes de servicio con sincronización en tiempo real vía SSE, CRUD completo, métricas financieras diarias y dashboard interactivo. Autenticación con migración automática y filtros de pago.",
+      title: "Sistema de Monitoreo de Órdenes en Tiempo Real",
+      description: "Aplicación web full-stack para gestión y monitoreo de órdenes de servicio con sincronización en tiempo real vía Server-Sent Events (SSE), CRUD completo, métricas financieras diarias y dashboard interactivo. Autenticación con migración automática y filtros de pago.",
       technologies: ["PHP", "Laravel", "Vue 3", "MySQL", "SSE", "Vite"],
       category: "Full-Stack",
       image: "/projects/ordenestiemporeal.png",
       githubUrl: "https://github.com/martinegs/os-live-vue"
     },
     {
-      title: "Gremio de Gestión de Tareas Pendientes",
+      title: "Sistema de Gestión de Tareas Pendientes",
       description: "Aplicación web full-stack para gestión de tareas con CRUD completo, filtros avanzados, búsqueda en tiempo real e indicadores estadísticos. Interfaz responsiva desarrollada en Laravel 10/11 con Bootstrap 5.",
       technologies: ["Laravel", "PHP 8.1+", "Bootstrap 5", "SQLite", "Blade"],
       category: "Full-Stack",
@@ -42,24 +28,24 @@ export default function Home() {
       caseStudyUrl: "/proyectos/tareas-pendientes"
     },
     {
-      title: "Taberna & Red Social tipo Twitter",
-      description: "Red social web tipo Twitter desarrollada en Laravel que permite a los usuarios registrarse, publicar mensajes, seguir a otros, dar 'me gusta' y gestionar su perfil con timeline personalizado.",
+      title: "Plataforma de Red Social & Timeline",
+      description: "Red social web inspirada en Twitter desarrollada en Laravel que permite autenticación de usuarios, publicaciones en tiempo real, sistema de seguidores, likes y gestión de perfil personalizado.",
       technologies: ["Laravel", "Blade", "Eloquent ORM", "SQLite", "Tailwind CSS", "Vite"],
       category: "Full-Stack",
       image: "/projects/redSocial.png",
       githubUrl: "https://github.com/martinegs/redSocial"
     },
     {
-      title: "Maravilla de eCommerce Supermercado",
-      description: "Sistema completo de eCommerce para supermercado con catálogo de productos, carrito de compras y gestión de pedidos. Incluye 44 productos reales con precios en ARS.",
+      title: "Plataforma eCommerce para Supermercado",
+      description: "Sistema completo de eCommerce para supermercado con catálogo de productos, gestión de carrito de compras en sesión y procesamiento de pedidos. Incluye productos reales con catálogo en ARS.",
       technologies: ["Laravel", "PHP", "SQLite", "Bootstrap", "Blade"],
       category: "Backend",
       image: "/projects/supermercado.png",
       githubUrl: "https://github.com/martinegs/ecommerceLaravel"
     },
     {
-      title: "Fortificación y Mejora de ERP Corporativo",
-      description: "Proyecto freelance en equipo: actualización y optimización de un sistema ERP corporativo existente, incorporando nuevas funcionalidades, refactorización de lógica backend y mejor experiencia de usuario.",
+      title: "Optimización & Refactorización de ERP Corporativo",
+      description: "Desarrollo freelance en equipo: actualización y optimización de un sistema ERP corporativo existente, incorporando nuevas funcionalidades, refactorización de lógica backend y mejor experiencia de usuario.",
       technologies: ["PHP", "jQuery", "Bootstrap", "MySQL"],
       category: "Backend",
       image: "/projects/dashboard-erp.png",
@@ -75,256 +61,269 @@ export default function Home() {
 
   const skillTree = [
     {
-      category: "Backend (Forja Principal)",
-      icon: "🌾",
-      items: ["PHP 8+", "Laravel", "CodeIgniter", "APIs REST", "Arquitectura MVC"]
+      category: "Backend Development",
+      icon: "⚡",
+      items: ["PHP 8+", "Laravel", "CodeIgniter", "APIs RESTful", "Arquitectura MVC"]
     },
     {
-      category: "Frontend (Guarnición)",
-      icon: "🪨",
+      category: "Frontend & UI",
+      icon: "🎨",
       items: ["Vue.js", "HTMX", "JavaScript (ES6+)", "jQuery", "Tailwind CSS", "Bootstrap"]
     },
     {
-      category: "Bases de Datos (Tesorería)",
-      icon: "🪙",
-      items: ["MySQL", "PostgreSQL", "SQLite"]
+      category: "Bases de Datos",
+      icon: "🗄️",
+      items: ["MySQL", "PostgreSQL", "SQLite", "Eloquent ORM"]
     },
     {
-      category: "Herramientas de Asedio",
-      icon: "🪵",
+      category: "Herramientas & Entorno",
+      icon: "🛠️",
       items: ["Git & GitHub", "Docker", "Postman", "Vite", "Linux"]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#0c0a09] text-amber-100 selection:bg-amber-600 selection:text-amber-950 font-sans relative">
+    <div className="min-h-screen bg-[#030712] text-gray-100 selection:bg-cyan-500 selection:text-slate-950 font-sans relative">
       <Header />
 
-      {/* Taunt Audio Notification Banner */}
-      {activeTaunt && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#1c1917] border-2 border-amber-500 text-amber-200 px-5 py-3 rounded-xl shadow-[0_0_25px_rgba(245,158,11,0.5)] flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5 font-serif">
-          <span className="text-xl">🔔</span>
-          <div>
-            <span className="block font-bold text-xs text-amber-400 uppercase tracking-widest">Taunt Age of Empires II</span>
-            <span className="text-sm font-semibold">{activeTaunt}</span>
-          </div>
-        </div>
-      )}
-
       {/* Hero Section */}
-      <section id="inicio" className="relative pt-36 pb-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-800/60 overflow-hidden">
-        {/* AoE2 Hero Image Background */}
-        <div className="absolute inset-0 z-0 opacity-20">
-          <Image
-            src="/projects/aoe2_banner.jpg"
-            alt="Age of Empires II Banner"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/80 to-[#0c0a09]/40" />
-        </div>
+      <section id="inicio" className="relative pt-36 pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 overflow-hidden">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            
+            {/* Main Text Content */}
+            <div className="md:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 bg-slate-900/90 border border-cyan-500/30 px-3.5 py-1.5 rounded-full text-xs font-mono text-cyan-400">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span>[ STATUS: DISPONIBLE PARA NUEVOS PROYECTOS ]</span>
+              </div>
 
-        <div className="max-w-6xl mx-auto relative z-10 text-center">
-          {/* Age Advancement Crest */}
-          <div className="inline-flex items-center gap-2 bg-amber-950/80 border-2 border-amber-500/80 px-4 py-2 rounded-xl text-xs sm:text-sm font-serif font-bold text-amber-300 mb-8 shadow-xl uppercase tracking-widest">
-            <span className="text-base">🏰</span>
-            <span>EDAD IMPERIAL • CIVILIZACIÓN BACKEND PHP</span>
-          </div>
+              <h1 className="text-4xl sm:text-6xl font-black text-gray-100 tracking-tight uppercase font-mono">
+                MARTIN <span className="cyber-gradient-text">GONZALEZ</span>
+              </h1>
 
-          {/* Main Title */}
-          <h1 className="text-5xl sm:text-7xl font-black text-amber-100 mb-4 tracking-wider uppercase font-serif drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">
-            MARTIN <span className="aoe-gold-text">GONZALEZ</span>
-          </h1>
+              <h2 className="text-lg sm:text-xl font-mono text-cyan-400/90 tracking-wide font-semibold">
+                Desarrollador Backend PHP | Laravel & CodeIgniter | Full Stack (Vue.js)
+              </h2>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-2xl text-amber-200/90 max-w-3xl mx-auto mb-8 leading-relaxed font-serif tracking-wide">
-            Desarrollador Full Stack JR enfocado en backend con <strong className="text-amber-400 font-bold">PHP (Laravel & CodeIgniter)</strong>, edificando lógica robusta e interfaces funcionales con <strong className="text-amber-300 font-bold">Vue.js, Tailwind y Bootstrap</strong>.
-          </p>
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-sans max-w-2xl">
+                Desarrollador enfocado en construir sistemas web eficientes, escalables y bien estructurados. Especializado en lógica backend con <strong className="text-cyan-300 font-semibold">PHP (Laravel, CodeIgniter)</strong>, integración de APIs REST, optimización de bases de datos e interfaces dinámicas con <strong className="text-cyan-300 font-semibold">Vue.js, HTMX, Tailwind y Bootstrap</strong>.
+              </p>
 
-          {/* Interactive AoE2 Sound/Taunt Bar */}
-          <div className="mb-10 flex flex-wrap justify-center items-center gap-2">
-            <span className="text-xs font-mono text-amber-500 uppercase tracking-widest mr-2">Probar Taunts AoE2:</span>
-            {taunts.map((t) => (
-              <button
-                key={t.code}
-                onClick={() => handleTaunt(t.message)}
-                className="bg-stone-900/90 hover:bg-amber-900/60 border border-amber-700/60 hover:border-amber-400 text-amber-300 text-xs font-mono px-3 py-1.5 rounded-lg shadow transition-all active:scale-95 flex items-center gap-1.5"
-              >
-                <span>🔊</span>
-                <span>{t.label}</span>
-              </button>
-            ))}
-          </div>
+              <div className="flex flex-wrap gap-3 pt-2 font-mono">
+                <a
+                  href="#proyectos"
+                  className="bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs px-6 py-3 rounded-lg shadow-lg hover:shadow-cyan-500/25 transition-all uppercase tracking-wider flex items-center gap-2"
+                >
+                  <span>VER PROYECTOS</span>
+                  <span>➔</span>
+                </a>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <a
-              href="#proyectos"
-              className="w-full sm:w-auto bg-gradient-to-b from-amber-500 via-amber-600 to-amber-800 hover:from-amber-400 hover:to-amber-700 text-amber-950 font-extrabold px-8 py-3.5 rounded-xl shadow-2xl transition-all duration-300 text-center uppercase tracking-wider font-serif border-2 border-amber-300/80 flex items-center justify-center gap-2"
-            >
-              <span>⚔️ Explorar Maravillas</span>
-            </a>
+                <a
+                  href="https://wa.me/542613440973"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-900 hover:bg-slate-800 border border-cyan-500/40 text-cyan-300 font-semibold text-xs px-6 py-3 rounded-lg transition-all flex items-center gap-2"
+                >
+                  <span>WHATSAPP</span>
+                </a>
 
-            <a
-              href="https://wa.me/542613440973"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-emerald-950/80 hover:bg-emerald-900/90 border-2 border-emerald-500/70 text-emerald-300 font-extrabold px-8 py-3.5 rounded-xl transition-all duration-300 text-center uppercase tracking-wider font-serif flex items-center justify-center gap-2"
-            >
-              <span>📜 Mensaje por WhatsApp</span>
-            </a>
+                <a
+                  href="#contacto"
+                  className="bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-gray-300 font-semibold text-xs px-6 py-3 rounded-lg transition-all"
+                >
+                  CONTACTAR
+                </a>
+              </div>
+            </div>
 
-            <a
-              href="#contacto"
-              className="w-full sm:w-auto bg-stone-900/90 hover:bg-stone-800 border-2 border-amber-700/60 text-amber-200 font-extrabold px-8 py-3.5 rounded-xl transition-all duration-300 text-center uppercase tracking-wider font-serif"
-            >
-              ✉️ Enviar Pergamino
-            </a>
+            {/* Futuristic Terminal Widget */}
+            <div className="md:col-span-5">
+              <div className="cyber-panel rounded-2xl p-5 border border-cyan-500/30 bg-slate-950/90 font-mono text-xs shadow-2xl space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <span className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <span className="text-[10px] text-slate-500">developer@martin-pc:~</span>
+                </div>
+
+                <div className="space-y-2 text-slate-300">
+                  <p><span className="text-cyan-400">$</span> php --version</p>
+                  <p className="text-emerald-400 font-semibold">PHP 8.3.4 (cli) (built: CLI Engine)</p>
+
+                  <p><span className="text-cyan-400">$</span> cat profile.json</p>
+                  <pre className="text-slate-400 bg-slate-900/80 p-3 rounded-lg border border-slate-800 overflow-x-auto text-[11px] leading-tight">
+{`{
+  "name": "Martin Gonzalez",
+  "role": "Backend & Full Stack Developer",
+  "location": "Mendoza, Argentina",
+  "education": "Lic. en Sistemas (Univ. Champagnat)",
+  "stack": ["PHP", "Laravel", "CodeIgniter", "Vue.js", "MySQL"]
+}`}
+                  </pre>
+
+                  <div className="flex items-center gap-2 pt-1 text-[11px] text-cyan-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    <span>Backend Ready • Database Tuned</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* About & Timeline Section */}
-      <section id="sobre-mi" className="py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-800/60 relative bg-[#120f0d]">
+      {/* Experience & Timeline Section */}
+      <section id="experiencia" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 bg-slate-950/60">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-amber-100 tracking-wider uppercase font-serif mb-3">
-              🛡️ Campañas & Historia de Guerra
+          <div className="text-center mb-14">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-100 font-mono uppercase tracking-wider mb-2">
+              // EXPERIENCIA LABORAL & EDUCACIÓN
             </h2>
-            <p className="text-amber-300/80 max-w-2xl mx-auto text-sm font-serif">
-              "Wololo! Me enfoco en resolver problemas de código con lógica limpia, estructura sólida y desarrollo eficiente."
+            <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto font-sans">
+              Trayectoria profesional en desarrollo full-stack, optimización de código backend y formación académica en sistemas.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 mb-16">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Story Card */}
-            <div className="bg-[#1c1917]/90 border-2 border-amber-800/70 p-8 rounded-2xl space-y-4 shadow-2xl relative">
-              <div className="flex items-center gap-3 mb-2 border-b border-amber-800/60 pb-3">
-                <span className="text-2xl">📜</span>
-                <h3 className="text-xl font-bold text-amber-200 font-serif uppercase tracking-wide">Filosofía de Desarrollo</h3>
+            <div className="cyber-panel p-6 sm:p-8 rounded-2xl border border-cyan-500/20 bg-slate-950/80 space-y-4">
+              <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span className="text-xl text-cyan-400 font-mono font-bold">&lt;/&gt;</span>
+                <h3 className="text-base font-bold text-gray-100 font-mono uppercase">Perfil Técnico</h3>
               </div>
-              <p className="text-amber-100/90 text-sm leading-relaxed font-sans">
-                Hace un tiempo que estoy dedicado al desarrollo web full-stack. No me quedo solo con que las cosas "funcionen", sino que busco que el código sea prolijo y la lógica de fondo altamente eficiente.
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-sans">
+                Apasionado por la ingeniería de software y el desarrollo backend eficiente. Mi enfoque está centrado en escribir código mantenible, estructurar modelos de datos óptimos y asegurar que cada aplicación funcione de forma fluida.
               </p>
-              <p className="text-amber-100/90 text-sm leading-relaxed font-sans">
-                Actualmente estudio la <strong className="text-amber-300">Licenciatura en Sistemas</strong> y trabajo día a día con <strong className="text-amber-300">Laravel y CodeIgniter</strong>. En Necta y DigitalTex me encargo de que los sistemas no solo aguanten el uso constante, sino que mejoren en cada iteración.
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-sans">
+                Actualmente curso la <strong className="text-cyan-300 font-medium">Licenciatura en Sistemas de Información</strong> en la Universidad Champagnat y me desempeño como desarrollador Full Stack en Necta, trabajando con <strong className="text-cyan-300 font-medium">Laravel, CodeIgniter, Vue.js y MySQL</strong>.
               </p>
-              <div className="pt-4 border-t border-amber-800/60 flex flex-wrap gap-3">
-                <span className="text-xs bg-amber-950/80 text-amber-300 border border-amber-700/60 px-3 py-1 rounded-md font-mono">
-                  📍 Reino: Mendoza, Argentina
+              <div className="pt-3 border-t border-slate-800 flex flex-wrap gap-2 font-mono text-xs">
+                <span className="bg-slate-900 border border-slate-800 text-cyan-400 px-3 py-1 rounded">
+                  📍 Mendoza, Argentina
                 </span>
-                <span className="text-xs bg-amber-950/80 text-amber-300 border border-amber-700/60 px-3 py-1 rounded-md font-mono">
-                  🎓 Academia: Univ. Champagnat
+                <span className="bg-slate-900 border border-slate-800 text-cyan-400 px-3 py-1 rounded">
+                  🎓 Univ. Champagnat
                 </span>
               </div>
             </div>
 
-            {/* Campaign Timeline */}
-            <div className="bg-[#1c1917]/90 border-2 border-amber-800/70 p-8 rounded-2xl shadow-2xl relative">
-              <div className="flex items-center gap-3 mb-6 border-b border-amber-800/60 pb-3">
-                <span className="text-2xl">⚔️</span>
-                <h3 className="text-xl font-bold text-amber-200 font-serif uppercase tracking-wide">Campañas de Experiencia</h3>
+            {/* Timeline */}
+            <div className="cyber-panel p-6 sm:p-8 rounded-2xl border border-slate-800 bg-slate-950/80 space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span className="text-xl text-cyan-400 font-mono font-bold">#</span>
+                <h3 className="text-base font-bold text-gray-100 font-mono uppercase">Historial Profesional</h3>
               </div>
 
-              <div className="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-amber-800/60">
+              <div className="space-y-6 relative before:absolute before:inset-0 before:left-2.5 before:w-0.5 before:bg-slate-800">
                 {/* Necta */}
-                <div className="relative pl-8">
-                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-950" />
-                  <h4 className="text-base font-bold text-amber-100 font-serif">Desarrollador Full Stack</h4>
-                  <p className="text-amber-400 text-xs font-semibold font-serif">Necta • Enero 2026 - Presente</p>
-                  <p className="text-stone-300 text-xs mt-1 leading-relaxed font-sans">
-                    Jornada completa • Presencial (Mendoza). Desarrollo de lógica backend con Laravel, refactorizaciones con jQuery, gestión de bases de datos y entrega de producto.
+                <div className="relative pl-7">
+                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-slate-950" />
+                  <h4 className="text-sm font-bold text-gray-100 font-mono">Desarrollador Full Stack</h4>
+                  <p className="text-cyan-400 text-xs font-mono">Necta • Ene 2026 - Presente</p>
+                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
+                    Jornada completa • Presencial (Mendoza). Desarrollo de lógica backend con Laravel, refactorizaciones con jQuery, gestión y optimización de bases de datos MySQL.
                   </p>
                 </div>
 
                 {/* Digitaltex */}
-                <div className="relative pl-8">
-                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-amber-600 ring-4 ring-amber-950" />
-                  <h4 className="text-base font-bold text-amber-100 font-serif">Desarrollador Full Stack</h4>
-                  <p className="text-amber-400 text-xs font-semibold font-serif">DigitalTex • Octubre 2024 - Diciembre 2025</p>
-                  <p className="text-stone-300 text-xs mt-1 leading-relaxed font-sans">
-                    1 año 3 meses • Remoto. Desarrollo y mantenimiento de sistema web a medida utilizando PHP y CodeIgniter para optimizar procesos internos, inventario y experiencia del cliente (MySQL, Vue.js).
+                <div className="relative pl-7">
+                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-slate-950" />
+                  <h4 className="text-sm font-bold text-gray-100 font-mono">Desarrollador Full Stack</h4>
+                  <p className="text-indigo-400 text-xs font-mono">DigitalTex • Oct 2024 - Dic 2025 (1 año 3 meses)</p>
+                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
+                    Remoto. Desarrollo y mantenimiento de sistema web a medida utilizando PHP y CodeIgniter para optimizar procesos internos, inventario y experiencia del usuario (MySQL, Vue.js).
                   </p>
                 </div>
 
                 {/* P&L Corp */}
-                <div className="relative pl-8">
-                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-amber-700 ring-4 ring-amber-950" />
-                  <h4 className="text-base font-bold text-amber-100 font-serif">Digitalizador</h4>
-                  <p className="text-amber-400 text-xs font-semibold font-serif">P&L CORP. • Noviembre 2024 - Enero 2025</p>
-                  <p className="text-stone-300 text-xs mt-1 leading-relaxed font-sans">
-                    Digitalización y archivo de documentos corporativos con escáners y Adobe Acrobat.
+                <div className="relative pl-7">
+                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-slate-600 ring-4 ring-slate-950" />
+                  <h4 className="text-sm font-bold text-gray-100 font-mono">Digitalizador</h4>
+                  <p className="text-slate-400 text-xs font-mono">P&L CORP. • Nov 2024 - Ene 2025</p>
+                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
+                    Digitalización y organización de documentación corporativa.
                   </p>
                 </div>
 
                 {/* Educación */}
-                <div className="relative pl-8">
-                  <span className="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-amber-800 ring-4 ring-amber-950" />
-                  <h4 className="text-base font-bold text-amber-100 font-serif">Licenciatura en Sistemas de Información</h4>
-                  <p className="text-amber-400 text-xs font-semibold font-serif">Universidad Champagnat • Mar 2021 - Presente</p>
-                  <p className="text-stone-300 text-xs mt-1 leading-relaxed font-sans">
-                    Formación universitaria en estructuras de datos, diseño de software, bases de datos y redes.
+                <div className="relative pl-7">
+                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-cyan-600 ring-4 ring-slate-950" />
+                  <h4 className="text-sm font-bold text-gray-100 font-mono">Licenciatura en Sistemas de Información</h4>
+                  <p className="text-cyan-400 text-xs font-mono">Universidad Champagnat • Mar 2021 - Presente</p>
+                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
+                    Formación de grado en arquitectura de software, bases de datos, redes y algoritmos.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Skill Tree */}
-          <div>
-            <h3 className="text-2xl font-extrabold text-amber-200 mb-8 text-center uppercase font-serif tracking-wider">
-              🪵 Árbol de Tecnologías & Recursos
-            </h3>
+      {/* Skills Matrix Section */}
+      <section id="habilidades" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 bg-[#030712]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-100 font-mono uppercase tracking-wider mb-2">
+              // HABILIDADES TÉCNICAS & TECNOLOGÍAS
+            </h2>
+            <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto font-sans">
+              Herramientas y tecnologías utilizadas en proyectos reales y desarrollos profesionales.
+            </p>
+          </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {skillTree.map((group, index) => (
-                <div
-                  key={index}
-                  className="bg-[#1c1917]/90 border-2 border-amber-800/60 p-6 rounded-xl shadow-xl hover:border-amber-500 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-2.5 mb-4 border-b border-amber-800/40 pb-2">
-                    <span className="text-xl">{group.icon}</span>
-                    <h4 className="text-sm font-bold text-amber-200 font-serif">{group.category}</h4>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item, itemIdx) => (
-                      <span
-                        key={itemIdx}
-                        className="bg-black/60 border border-amber-700/40 text-amber-300 text-xs font-mono px-2.5 py-1 rounded hover:bg-amber-900/60 hover:text-amber-100 transition-all"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skillTree.map((group, index) => (
+              <div
+                key={index}
+                className="cyber-panel p-5 rounded-xl border border-slate-800 bg-slate-950/80 hover:border-cyan-500/40 transition-all"
+              >
+                <div className="flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+                  <span className="text-lg">{group.icon}</span>
+                  <h3 className="text-xs font-bold text-cyan-400 font-mono uppercase">{group.category}</h3>
                 </div>
-              ))}
-            </div>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {group.items.map((item, itemIdx) => (
+                    <span
+                      key={itemIdx}
+                      className="bg-slate-900 border border-slate-800 text-gray-300 text-xs font-mono px-2.5 py-1 rounded hover:border-cyan-500/40 hover:text-cyan-300 transition-all"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="proyectos" className="py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-800/60 bg-[#0c0a09]">
+      <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 bg-slate-950/40">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-amber-100 tracking-wider uppercase font-serif mb-3">
-              🏰 Maravillas & Edificaciones
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-100 font-mono uppercase tracking-wider mb-2">
+              // PORTFOLIO DE PROYECTOS
             </h2>
-            <p className="text-amber-300/80 max-w-2xl mx-auto text-sm font-serif">
-              Proyectos backend y full-stack construidos con Laravel, CodeIgniter y PHP.
+            <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto font-sans">
+              Proyectos web destacados desarrollados con PHP, Laravel, CodeIgniter, Vue.js y MySQL.
             </p>
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap justify-center gap-2 mt-8">
+            <div className="flex flex-wrap justify-center gap-2 mt-6 font-mono text-xs">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
-                  className={`px-5 py-2 rounded-lg text-xs font-serif font-bold uppercase tracking-wider transition-all duration-200 border-2 ${
+                  className={`px-4 py-2 rounded-lg font-bold uppercase transition-all border ${
                     activeFilter === cat
-                      ? "bg-amber-600 border-amber-300 text-amber-950 shadow-lg"
-                      : "bg-stone-900/80 border-amber-800/60 text-amber-300 hover:text-amber-100 hover:bg-stone-800"
+                      ? "bg-cyan-600 border-cyan-400 text-slate-950 shadow-lg"
+                      : "bg-slate-900 border-slate-800 text-gray-300 hover:text-cyan-400 hover:border-cyan-500/40"
                   }`}
                 >
                   {cat}
@@ -343,43 +342,42 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-[#120f0d]">
+      <section id="contacto" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#030712]">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-amber-100 tracking-wider uppercase font-serif mb-3">
-              ✉️ Mensajería & Alianzas
+          <div className="text-center mb-14">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-100 font-mono uppercase tracking-wider mb-2">
+              // INFORMACIÓN DE CONTACTO
             </h2>
-            <p className="text-amber-300/80 max-w-xl mx-auto text-sm font-serif">
-              ¿Buscás a alguien que se ponga la camiseta del proyecto y resuelva? ¡Despacha tu pergamino!
+            <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto font-sans">
+              ¿Tenés alguna consulta o querés conversar sobre una oportunidad laboral? ¡Escribime!
             </p>
           </div>
 
-          <div className="grid md:grid-cols-5 gap-10">
+          <div className="grid md:grid-cols-5 gap-8">
             {/* Info Cards */}
             <div className="md:col-span-2 space-y-4">
-              <div className="bg-[#1c1917]/90 border-2 border-amber-800/60 p-6 rounded-xl">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-amber-950 border border-amber-600/60 text-amber-400 rounded-lg text-lg">
+              <div className="cyber-panel p-5 rounded-xl border border-slate-800 bg-slate-950/80 font-mono">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 bg-slate-900 border border-slate-800 text-cyan-400 rounded-lg text-base">
                     📍
                   </div>
                   <div>
-                    <h4 className="font-bold text-amber-200 text-sm font-serif">Ubicación del Reino</h4>
-                    <p className="text-stone-300 text-xs mt-0.5">Mendoza, Argentina</p>
-                    <p className="text-xs text-amber-400 mt-1">Presencial / Remoto</p>
+                    <h3 className="font-bold text-gray-200 text-xs uppercase">Ubicación</h3>
+                    <p className="text-slate-400 text-xs mt-0.5">Mendoza, Argentina</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#1c1917]/90 border-2 border-amber-800/60 p-6 rounded-xl">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-amber-950 border border-amber-600/60 text-amber-400 rounded-lg text-lg">
+              <div className="cyber-panel p-5 rounded-xl border border-slate-800 bg-slate-950/80 font-mono">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 bg-slate-900 border border-slate-800 text-cyan-400 rounded-lg text-base">
                     ✉️
                   </div>
                   <div>
-                    <h4 className="font-bold text-amber-200 text-sm font-serif">Correo Directo</h4>
+                    <h3 className="font-bold text-gray-200 text-xs uppercase">Correo Electrónico</h3>
                     <a
                       href="mailto:Martinegs2012@gmail.com"
-                      className="text-stone-300 hover:text-amber-400 text-xs transition-colors block mt-0.5"
+                      className="text-cyan-400 hover:underline text-xs block mt-0.5"
                     >
                       Martinegs2012@gmail.com
                     </a>
@@ -387,13 +385,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-[#1c1917]/90 border-2 border-amber-800/60 p-6 rounded-xl">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-emerald-950 border border-emerald-600/60 text-emerald-400 rounded-lg text-lg">
+              <div className="cyber-panel p-5 rounded-xl border border-slate-800 bg-slate-950/80 font-mono">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 bg-slate-900 border border-slate-800 text-emerald-400 rounded-lg text-base">
                     📱
                   </div>
                   <div>
-                    <h4 className="font-bold text-amber-200 text-sm font-serif">WhatsApp Mensajero</h4>
+                    <h3 className="font-bold text-gray-200 text-xs uppercase">WhatsApp</h3>
                     <a
                       href="https://wa.me/542613440973"
                       target="_blank"
@@ -419,6 +417,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 
 

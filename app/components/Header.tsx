@@ -7,77 +7,63 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Crónicas", href: "#inicio", icon: "📜" },
-    { label: "Campañas", href: "#sobre-mi", icon: "🛡️" },
-    { label: "Maravillas", href: "#proyectos", icon: "🏰" },
-    { label: "Pergamino", href: "#contacto", icon: "✉️" },
+    { label: "// 01. INICIO", href: "#inicio" },
+    { label: "// 02. EXPERIENCIA", href: "#experiencia" },
+    { label: "// 03. PROYECTOS", href: "#proyectos" },
+    { label: "// 04. HABILIDADES", href: "#habilidades" },
+    { label: "// 05. CONTACTO", href: "#contacto" },
   ];
 
   return (
-    <header className="fixed top-2 left-0 right-0 z-50 px-2 sm:px-6 lg:px-8">
+    <header className="fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* AoE2 Top HUD Container */}
-        <div className="bg-[#1c1917]/95 border-2 border-amber-600/60 rounded-xl px-4 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.9)] flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="cyber-panel rounded-xl px-4 py-3 flex justify-between items-center gap-4 border border-cyan-500/30 bg-slate-950/80 backdrop-blur-xl shadow-2xl">
           
-          {/* Brand / Crest */}
+          {/* Brand */}
           <Link href="#inicio" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-b from-amber-500 via-amber-700 to-amber-950 border-2 border-amber-300 flex items-center justify-center text-amber-100 font-extrabold text-sm shadow-inner group-hover:scale-105 transition-transform">
-              ⚔️
+            <div className="w-9 h-9 rounded-lg bg-cyan-950/60 border border-cyan-500/50 flex items-center justify-center text-cyan-400 font-mono font-bold text-xs group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all">
+              MG_
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-amber-200 tracking-wider text-sm sm:text-base group-hover:text-amber-400 transition-colors uppercase font-serif">
+              <span className="font-bold text-gray-100 tracking-wider text-sm sm:text-base group-hover:text-cyan-400 transition-colors uppercase font-mono">
                 Martin Gonzalez
               </span>
-              <span className="text-[10px] text-amber-500/90 font-mono tracking-widest uppercase">
-                Backend PHP • Civilización Dev
+              <span className="text-[10px] text-cyan-400/80 font-mono tracking-widest uppercase flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                Backend PHP • Full Stack
               </span>
             </div>
           </Link>
 
-          {/* AoE2 Resource Bar (Game HUD) */}
-          <div className="hidden lg:flex items-center gap-4 bg-black/60 border border-amber-800/60 px-4 py-1.5 rounded-lg text-xs font-mono text-amber-200 shadow-inner">
-            <div className="flex items-center gap-1.5" title="Recurso Principal: PHP">
-              <span className="text-base">🌾</span>
-              <span className="text-amber-400 font-bold">1000</span>
-              <span className="text-[10px] text-amber-300/60">PHP 8+</span>
-            </div>
-            <div className="h-4 w-px bg-amber-800/60" />
-            <div className="flex items-center gap-1.5" title="Framework: Laravel">
-              <span className="text-base">🪵</span>
-              <span className="text-amber-400 font-bold">850</span>
-              <span className="text-[10px] text-amber-300/60">Laravel</span>
-            </div>
-            <div className="h-4 w-px bg-amber-800/60" />
-            <div className="flex items-center gap-1.5" title="Framework: CodeIgniter">
-              <span className="text-base">🪙</span>
-              <span className="text-amber-400 font-bold">600</span>
-              <span className="text-[10px] text-amber-300/60">CodeIgniter</span>
-            </div>
-            <div className="h-4 w-px bg-amber-800/60" />
-            <div className="flex items-center gap-1.5" title="Frontend: Vue.js">
-              <span className="text-base">🪨</span>
-              <span className="text-amber-400 font-bold">450</span>
-              <span className="text-[10px] text-amber-300/60">Vue.js</span>
-            </div>
+          {/* Futuristic Tech Status Bar (Desktop) */}
+          <div className="hidden lg:flex items-center gap-3 bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg text-[11px] font-mono text-gray-300">
+            <span className="text-cyan-400 font-semibold">[SYS_OK]</span>
+            <span className="text-slate-600">|</span>
+            <span className="hover:text-cyan-300 transition-colors">PHP 8+</span>
+            <span className="text-slate-600">•</span>
+            <span className="hover:text-cyan-300 transition-colors">Laravel</span>
+            <span className="text-slate-600">•</span>
+            <span className="hover:text-cyan-300 transition-colors">CodeIgniter</span>
+            <span className="text-slate-600">•</span>
+            <span className="hover:text-cyan-300 transition-colors">Vue.js</span>
           </div>
 
           {/* Navigation Items */}
-          <nav className="hidden md:flex items-center gap-1 bg-amber-950/40 border border-amber-700/50 rounded-lg p-1">
+          <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="px-3 py-1.5 text-xs font-semibold text-amber-200 hover:text-amber-900 hover:bg-gradient-to-b hover:from-amber-300 hover:to-amber-500 rounded transition-all flex items-center gap-1.5 shadow-sm"
+                className="px-3 py-1.5 text-xs font-mono text-gray-300 hover:text-cyan-400 hover:bg-cyan-950/40 rounded border border-transparent hover:border-cyan-500/30 transition-all"
               >
-                <span>{item.icon}</span>
-                <span>{item.label}</span>
+                {item.label}
               </Link>
             ))}
           </nav>
 
           {/* Mobile Menu Trigger */}
           <button
-            className="md:hidden p-2 text-amber-400 hover:text-amber-200 rounded-lg focus:outline-none"
+            className="md:hidden p-2 text-cyan-400 hover:text-cyan-300 rounded-lg focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -93,26 +79,23 @@ export default function Header() {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-2 bg-[#1c1917]/95 border-2 border-amber-600 rounded-xl p-4 shadow-2xl space-y-2 font-serif animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden mt-2 bg-slate-950/95 border border-cyan-500/40 rounded-xl p-4 shadow-2xl space-y-2 font-mono animate-in fade-in slide-in-from-top-2 duration-200 backdrop-blur-xl">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-2.5 text-sm font-semibold text-amber-200 hover:text-amber-950 hover:bg-amber-400 rounded-lg transition-all flex items-center gap-2"
+                className="block px-4 py-2.5 text-xs font-semibold text-gray-200 hover:text-cyan-400 hover:bg-cyan-950/50 rounded-lg border border-transparent hover:border-cyan-500/30 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span>{item.icon}</span>
-                <span>{item.label}</span>
+                {item.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-amber-800 flex items-center justify-center gap-2 text-amber-400 text-xs font-mono py-1">
-              <span>🏰 EDAD IMPERIAL • MENDOZA</span>
-            </div>
           </div>
         )}
       </div>
     </header>
   );
 }
+
 
 
