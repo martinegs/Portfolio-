@@ -1,86 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProjectCard from "./components/ProjectCard";
 import ContactForm from "./components/ContactForm";
+import { Project, ExperienceItem, SkillCategory } from "@/lib/initialData";
+import { getStoredProjects, getStoredExperiences, getStoredSkills } from "@/lib/storage";
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("Todos");
 
-  const projects = [
-    {
-      title: "Sistema de Monitoreo de Órdenes en Tiempo Real",
-      description: "Aplicación web full-stack para gestión y monitoreo de órdenes de servicio con sincronización en tiempo real vía Server-Sent Events (SSE), CRUD completo, métricas financieras diarias y dashboard interactivo. Autenticación con migración automática y filtros de pago.",
-      technologies: ["PHP", "Laravel", "Vue 3", "MySQL", "SSE", "Vite"],
-      category: "Full-Stack",
-      image: "/projects/ordenestiemporeal.png",
-      githubUrl: "https://github.com/martinegs/os-live-vue"
-    },
-    {
-      title: "Sistema de Gestión de Tareas Pendientes",
-      description: "Aplicación web full-stack para gestión de tareas con CRUD completo, filtros avanzados, búsqueda en tiempo real e indicadores estadísticos. Interfaz responsiva desarrollada en Laravel 10/11 con Bootstrap 5.",
-      technologies: ["Laravel", "PHP 8.1+", "Bootstrap 5", "SQLite", "Blade"],
-      category: "Full-Stack",
-      image: "/projects/tareas.png",
-      githubUrl: "https://github.com/martinegs/notasLaravel",
-      caseStudyUrl: "/proyectos/tareas-pendientes"
-    },
-    {
-      title: "Plataforma de Red Social & Timeline",
-      description: "Red social web inspirada en Twitter desarrollada en Laravel que permite autenticación de usuarios, publicaciones en tiempo real, sistema de seguidores, likes y gestión de perfil personalizado.",
-      technologies: ["Laravel", "Blade", "Eloquent ORM", "SQLite", "Tailwind CSS", "Vite"],
-      category: "Full-Stack",
-      image: "/projects/redSocial.png",
-      githubUrl: "https://github.com/martinegs/redSocial"
-    },
-    {
-      title: "Plataforma eCommerce para Supermercado",
-      description: "Sistema completo de eCommerce para supermercado con catálogo de productos, gestión de carrito de compras en sesión y procesamiento de pedidos. Incluye productos reales con catálogo en ARS.",
-      technologies: ["Laravel", "PHP", "SQLite", "Bootstrap", "Blade"],
-      category: "Backend",
-      image: "/projects/supermercado.png",
-      githubUrl: "https://github.com/martinegs/ecommerceLaravel"
-    },
-    {
-      title: "Optimización & Refactorización de ERP Corporativo",
-      description: "Desarrollo freelance en equipo: actualización y optimización de un sistema ERP corporativo existente, incorporando nuevas funcionalidades, refactorización de lógica backend y mejor experiencia de usuario.",
-      technologies: ["PHP", "jQuery", "Bootstrap", "MySQL"],
-      category: "Backend",
-      image: "/projects/dashboard-erp.png",
-      hideGithub: true
-    }
-  ];
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [experiences, setExperiences] = useState<ExperienceItem[]>([]);
+  const [skills, setSkills] = useState<SkillCategory[]>([]);
 
-  const categories = ["Todos", "Full-Stack", "Backend"];
+  // Reactive sync with admin changes
+  useEffect(() => {
+    const loadData = () => {
+      setProjects(getStoredProjects());
+      setExperiences(getStoredExperiences());
+      setSkills(getStoredSkills());
+    };
+
+    loadData();
+
+    window.addEventListener("portfolio_data_updated", loadData);
+    window.addEventListener("storage", loadData);
+
+    return () => {
+      window.removeEventListener("portfolio_data_updated", loadData);
+      window.removeEventListener("storage", loadData);
+    };
+  }, []);
+
+  const categories = ["Todos", "Full-Stack", "Backend", "Frontend"];
 
   const filteredProjects = activeFilter === "Todos" 
     ? projects 
     : projects.filter(p => p.category === activeFilter || p.technologies.includes(activeFilter));
-
-  const skillTree = [
-    {
-      category: "Backend Development",
-      icon: "⚡",
-      items: ["PHP 8+", "Laravel", "CodeIgniter", "APIs RESTful", "Arquitectura MVC"]
-    },
-    {
-      category: "Frontend & UI",
-      icon: "🎨",
-      items: ["Vue.js", "HTMX", "JavaScript (ES6+)", "jQuery", "Tailwind CSS", "Bootstrap"]
-    },
-    {
-      category: "Bases de Datos",
-      icon: "🗄️",
-      items: ["MySQL", "PostgreSQL", "SQLite", "Eloquent ORM"]
-    },
-    {
-      category: "Herramientas & Entorno",
-      icon: "🛠️",
-      items: ["Git & GitHub", "Docker", "Postman", "Vite", "Linux"]
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-[#030712] text-gray-100 selection:bg-cyan-500 selection:text-slate-950 font-sans relative">
@@ -129,10 +87,10 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="#contacto"
-                  className="bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-gray-300 font-semibold text-xs px-6 py-3 rounded-lg transition-all"
+                  href="/admin"
+                  className="bg-slate-900/90 hover:bg-slate-800 border border-cyan-500/50 text-cyan-400 font-semibold text-xs px-6 py-3 rounded-lg transition-all"
                 >
-                  CONTACTAR
+                  ⚙️ PANEL DE ADMIN
                 </a>
               </div>
             </div>
@@ -219,45 +177,16 @@ export default function Home() {
               </div>
 
               <div className="space-y-6 relative before:absolute before:inset-0 before:left-2.5 before:w-0.5 before:bg-slate-800">
-                {/* Necta */}
-                <div className="relative pl-7">
-                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-slate-950" />
-                  <h4 className="text-sm font-bold text-gray-100 font-mono">Desarrollador Full Stack</h4>
-                  <p className="text-cyan-400 text-xs font-mono">Necta • Ene 2026 - Presente</p>
-                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
-                    Jornada completa • Presencial (Mendoza). Desarrollo de lógica backend con Laravel, refactorizaciones con jQuery, gestión y optimización de bases de datos MySQL.
-                  </p>
-                </div>
-
-                {/* Digitaltex */}
-                <div className="relative pl-7">
-                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-slate-950" />
-                  <h4 className="text-sm font-bold text-gray-100 font-mono">Desarrollador Full Stack</h4>
-                  <p className="text-indigo-400 text-xs font-mono">DigitalTex • Oct 2024 - Dic 2025 (1 año 3 meses)</p>
-                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
-                    Remoto. Desarrollo y mantenimiento de sistema web a medida utilizando PHP y CodeIgniter para optimizar procesos internos, inventario y experiencia del usuario (MySQL, Vue.js).
-                  </p>
-                </div>
-
-                {/* P&L Corp */}
-                <div className="relative pl-7">
-                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-slate-600 ring-4 ring-slate-950" />
-                  <h4 className="text-sm font-bold text-gray-100 font-mono">Digitalizador</h4>
-                  <p className="text-slate-400 text-xs font-mono">P&L CORP. • Nov 2024 - Ene 2025</p>
-                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
-                    Digitalización y organización de documentación corporativa.
-                  </p>
-                </div>
-
-                {/* Educación */}
-                <div className="relative pl-7">
-                  <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-cyan-600 ring-4 ring-slate-950" />
-                  <h4 className="text-sm font-bold text-gray-100 font-mono">Licenciatura en Sistemas de Información</h4>
-                  <p className="text-cyan-400 text-xs font-mono">Universidad Champagnat • Mar 2021 - Presente</p>
-                  <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
-                    Formación de grado en arquitectura de software, bases de datos, redes y algoritmos.
-                  </p>
-                </div>
+                {experiences.map((exp, index) => (
+                  <div key={exp.id || index} className="relative pl-7">
+                    <span className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-slate-950" />
+                    <h4 className="text-sm font-bold text-gray-100 font-mono">{exp.title}</h4>
+                    <p className="text-cyan-400 text-xs font-mono">{exp.company} • {exp.period}</p>
+                    <p className="text-slate-400 text-xs mt-1 leading-relaxed font-sans">
+                      {exp.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -277,9 +206,9 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skillTree.map((group, index) => (
+            {skills.map((group, index) => (
               <div
-                key={index}
+                key={group.id || index}
                 className="cyber-panel p-5 rounded-xl border border-slate-800 bg-slate-950/80 hover:border-cyan-500/40 transition-all"
               >
                 <div className="flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
@@ -335,7 +264,7 @@ export default function Home() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredProjects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
+              <ProjectCard key={project.id || index} {...project} />
             ))}
           </div>
         </div>
@@ -417,6 +346,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 
 
