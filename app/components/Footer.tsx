@@ -10,59 +10,57 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 text-gray-400 py-12 relative overflow-hidden font-mono text-xs">
-      {/* Glow Line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-slate-950 border-t border-white/5 text-gray-400 py-12 relative overflow-hidden font-sans text-xs">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-cyan-950/60 border border-cyan-500/50 flex items-center justify-center text-cyan-400 font-bold text-xs">
-                MG_
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-mono font-bold text-xs">
+                MG
               </div>
-              <h3 className="text-gray-100 text-sm font-bold tracking-wider uppercase font-mono">
+              <h3 className="text-gray-100 text-sm font-bold tracking-tight font-sans">
                 Martin Gonzalez
               </h3>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed font-sans">
-              Desarrollador Backend PHP especializado en Laravel & CodeIgniter. Creación de lógica robusta, optimización de consultas SQL e integración de interfaces modernas con Vue.js y Tailwind CSS.
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Desarrollador Backend PHP especializado en Laravel & CodeIgniter 4. Creación de lógica robusta, optimización de consultas MySQL e integración de vistas con Vue.js y Tailwind CSS.
             </p>
-            <div className="mt-3 text-[11px] text-cyan-400/80 font-mono">
-              [SYSTEM_STATUS: ACTIVE // MENDOZA, ARGENTINA]
+            <div className="text-[11px] text-emerald-400 font-mono flex items-center gap-1.5 pt-1">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Mendoza, Argentina • Disponible para proyectos
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4 border-b border-slate-800 pb-2">
-              // NAVEGACIÓN
+            <h3 className="text-gray-200 text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+              Navegación
             </h3>
-            <ul className="space-y-2.5 text-xs text-gray-300 font-mono">
+            <ul className="space-y-2 text-xs text-gray-300 font-sans">
               <li>
-                <Link href="#inicio" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span>➔</span> Inicio
+                <Link href="#inicio" className="hover:text-cyan-400 transition-colors">
+                  Inicio
                 </Link>
               </li>
               <li>
-                <Link href="#experiencia" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span>➔</span> Experiencia Laboral
+                <Link href="#experiencia" className="hover:text-cyan-400 transition-colors">
+                  Experiencia Laboral
                 </Link>
               </li>
               <li>
-                <Link href="#proyectos" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span>➔</span> Proyectos
+                <Link href="#proyectos" className="hover:text-cyan-400 transition-colors">
+                  Proyectos Destacados
                 </Link>
               </li>
               <li>
-                <Link href="#habilidades" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span>➔</span> Habilidades Técnicas
+                <Link href="#habilidades" className="hover:text-cyan-400 transition-colors">
+                  Stack Tecnológico
                 </Link>
               </li>
               <li>
-                <Link href="#contacto" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span>➔</span> Contacto
+                <Link href="#contacto" className="hover:text-cyan-400 transition-colors">
+                  Contacto
                 </Link>
               </li>
             </ul>
@@ -70,15 +68,13 @@ export default function Footer() {
 
           {/* Contact Info & Social */}
           <div>
-            <h3 className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4 border-b border-slate-800 pb-2">
-              // CANALES DIRECTOS
+            <h3 className="text-gray-200 text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+              Contacto Directo
             </h3>
-            <ul className="space-y-2 text-xs text-gray-300 mb-4 font-mono">
-              <li className="flex items-center gap-2">
-                <span className="text-slate-500">LOC:</span> Mendoza, Argentina
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-slate-500">MAIL:</span>
+            <ul className="space-y-2 text-xs text-gray-300 mb-4 font-sans">
+              <li>📍 Mendoza, Argentina</li>
+              <li>
+                ✉️{" "}
                 <a
                   href="mailto:Martinegs2012@gmail.com"
                   className="hover:text-cyan-400 transition-colors"
@@ -86,15 +82,15 @@ export default function Footer() {
                   Martinegs2012@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-slate-500">WAPP:</span>
+              <li>
+                📱{" "}
                 <a
                   href="https://wa.me/542613440973"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-emerald-400 transition-colors font-mono"
                 >
-                  +54 2613440973
+                  +54 2613440973 (WhatsApp)
                 </a>
               </li>
             </ul>
@@ -105,7 +101,7 @@ export default function Footer() {
                 href="https://github.com/martinegs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-gray-300 hover:text-white hover:border-cyan-500/50 transition-all"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -116,7 +112,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/martin-gonzalez7/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-gray-300 hover:text-white hover:border-cyan-500/50 transition-all"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -127,14 +123,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800/80 mt-10 pt-6 text-center text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-[11px]">
-          <p>&copy; {currentYear ?? "2026"} Martin Gonzalez • Full Stack Developer Portfolio</p>
-          <p className="text-cyan-400/60">Diseño Futurista & Tecnológico</p>
+        <div className="border-t border-slate-800 mt-10 pt-6 text-center text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-sans">
+          <p>&copy; {currentYear ?? "2026"} Martin Gonzalez • Desarrollador Backend & Full Stack</p>
+          <p className="text-gray-400">Diseñado con Next.js & Tailwind CSS</p>
         </div>
       </div>
     </footer>
   );
 }
+
 
 
 
