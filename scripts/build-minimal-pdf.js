@@ -1,0 +1,118 @@
+const fs = require('fs');
+const path = require('path');
+
+function createPurePDF() {
+  const content = [];
+  
+  function add(str) {
+    content.push(str);
+  }
+
+  // Header & Profile Data
+  const textLines = [
+    "BT /F2 20 Tf 40 790 Td (MARTIN GONZALEZ) Tj ET",
+    "BT /F2 10 Tf 40 772 Td (DESARROLLADOR BACKEND PHP | LARAVEL & CODEIGNITER | FULL STACK) Tj ET",
+    "BT /F1 8.5 Tf 40 757 Td (Ubicacion: Mendoza, Argentina | Tel: +54 2613440973 | Mail: Martinegs2012@gmail.com) Tj ET",
+    "BT /F1 8.5 Tf 40 745 Td (LinkedIn: linkedin.com/in/martin-gonzalez7 | GitHub: github.com/martinegs) Tj ET",
+
+    // Section 1
+    "BT /F2 11 Tf 40 720 Td (PERFIL PROFESIONAL) Tj ET",
+    "BT /F1 8.5 Tf 40 705 Td (Desarrollador Web especializado en Backend con PHP \\(Laravel, CodeIgniter 4\\) e integracion de) Tj ET",
+    "BT /F1 8.5 Tf 40 693 Td (aplicaciones Full-Stack con Vue.js, HTMX y MySQL. Experimentado en arquitecturas MVC, APIs RESTful,) Tj ET",
+    "BT /F1 8.5 Tf 40 681 Td (optimizacion de consultas SQL y refactorizacion legacy. Estudiante de Lic. en Sistemas \\(Univ. Champagnat\\).) Tj ET",
+
+    // Section 2
+    "BT /F2 11 Tf 40 655 Td (EXPERIENCIA LABORAL) Tj ET",
+    
+    "BT /F2 9.5 Tf 40 640 Td (Desarrollador Full Stack - Necta) Tj ET",
+    "BT /F1 8.5 Tf 320 640 Td (Enero 2026 - Presente | Presencial, Mendoza) Tj ET",
+    "BT /F1 8.5 Tf 45 627 Td (- Desarrollo de arquitectura backend, modulos de negocio y servicios RESTful con Laravel y PHP 8+.) Tj ET",
+    "BT /F1 8.5 Tf 45 615 Td (- Refactorizacion de componentes legacy con jQuery y JavaScript ES6+ a estandares modernos.) Tj ET",
+    "BT /F1 8.5 Tf 45 603 Td (- Diseno y optimizacion de bases de datos relacionales MySQL asegurando alto rendimiento.) Tj ET",
+
+    "BT /F2 9.5 Tf 40 583 Td (Desarrollador Full Stack - DigitalTex) Tj ET",
+    "BT /F1 8.5 Tf 320 583 Td (Octubre 2024 - Diciembre 2025 | Remoto) Tj ET",
+    "BT /F1 8.5 Tf 45 570 Td (- Desarrollo y mantenimiento de sistema web corporativo a medida utilizando PHP 8 y CodeIgniter 4.) Tj ET",
+    "BT /F1 8.5 Tf 45 558 Td (- Automatizacion de procesos internos, control de inventario y frontend dinamico con Vue.js.) Tj ET",
+    "BT /F1 8.5 Tf 45 546 Td (- Optimizacion de consultas SQL complejas y estructuras de datos relacionales.) Tj ET",
+
+    "BT /F2 9.5 Tf 40 526 Td (Digitalizador - P&L CORP.) Tj ET",
+    "BT /F1 8.5 Tf 320 526 Td (Noviembre 2024 - Enero 2025 | Mendoza) Tj ET",
+    "BT /F1 8.5 Tf 45 513 Td (- Digitalizacion y procesamiento estructurado de documentacion corporativa.) Tj ET",
+
+    // Section 3
+    "BT /F2 11 Tf 40 488 Td (EDUCACION Y FORMACION ACADEMICA) Tj ET",
+    "BT /F2 9.5 Tf 40 473 Td (Licenciatura en Sistemas de Informacion) Tj ET",
+    "BT /F1 8.5 Tf 340 473 Td (Marzo 2021 - Presente \\(En Curso\\)) Tj ET",
+    "BT /F1 8.5 Tf 40 461 Td (Universidad Champagnat - Mendoza, Argentina) Tj ET",
+    "BT /F1 8.5 Tf 40 449 Td (Formacion universitaria en Algoritmos, Arquitectura de Software, Bases de Datos y Redes.) Tj ET",
+
+    // Section 4
+    "BT /F2 11 Tf 40 424 Td (HABILIDADES TECNICAS) Tj ET",
+    "BT /F1 8.5 Tf 45 409 Td (- Backend & Lenguajes: PHP 8+, Laravel 10/11, CodeIgniter 4, APIs RESTful, Eloquent ORM, MVC.) Tj ET",
+    "BT /F1 8.5 Tf 45 397 Td (- Frontend & UI: Vue.js 3, HTMX, JavaScript ES6+, jQuery, Blade, Tailwind CSS, Bootstrap 5.) Tj ET",
+    "BT /F1 8.5 Tf 45 385 Td (- Bases de Datos: MySQL, PostgreSQL, SQLite, optimizacion de consultas SQL.) Tj ET",
+    "BT /F1 8.5 Tf 45 373 Td (- Herramientas: Git, GitHub, Docker, Postman, Vite, Linux \\(Bash\\), Vercel.) Tj ET",
+
+    // Section 5
+    "BT /F2 11 Tf 40 348 Td (PROYECTOS DESTACADOS) Tj ET",
+    "BT /F2 9.5 Tf 40 333 Td (Sistema de Monitoreo de Ordenes en Tiempo Real) Tj ET",
+    "BT /F1 8.5 Tf 330 333 Td (Laravel, Vue 3, SSE, MySQL) Tj ET",
+    "BT /F1 8.5 Tf 45 321 Td (Aplicacion full-stack para gestion de ordenes con sincronizacion SSE y metricas en tiempo real.) Tj ET",
+    "BT /F2 9.5 Tf 40 301 Td (Sistema de Gestion de Tareas Pendientes) Tj ET",
+    "BT /F1 8.5 Tf 330 301 Td (Laravel 10/11, Bootstrap 5, SQLite) Tj ET",
+    "BT /F1 8.5 Tf 45 289 Td (Aplicacion con CRUD completo, busqueda en tiempo real y estadisticas de completitud.) Tj ET"
+  ];
+
+  const streamContent = textLines.join("\n");
+  const streamLength = Buffer.byteLength(streamContent);
+
+  const objects = [];
+  objects.push("%PDF-1.4\n");
+  
+  // Obj 1: Catalog
+  objects.push("1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n");
+  
+  // Obj 2: Pages
+  objects.push("2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n");
+
+  // Obj 3: Page
+  objects.push("3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>\nendobj\n");
+
+  // Obj 4: Font Regular
+  objects.push("4 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n");
+
+  // Obj 5: Font Bold
+  objects.push("5 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>\nendobj\n");
+
+  // Obj 6: Stream
+  objects.push(`6 0 obj\n<< /Length ${streamLength} >>\nstream\n${streamContent}\nendstream\nendobj\n`);
+
+  // Xref
+  let offsets = [0];
+  let currentOffset = objects[0].length;
+
+  for (let i = 1; i < objects.length; i++) {
+    offsets.push(currentOffset);
+    currentOffset += objects[i].length;
+  }
+
+  let xref = `xref\n0 ${objects.length}\n0000000000 65535 f \n`;
+  for (let i = 1; i < offsets.length; i++) {
+    xref += String(offsets[i]).padStart(10, '0') + " 00000 n \n";
+  }
+
+  const trailer = `trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${currentOffset}\n%%EOF`;
+
+  const pdfBuffer = Buffer.from(objects.join("") + xref + trailer);
+  const publicDir = path.join(__dirname, "..", "public");
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+  }
+
+  const destPath = path.join(publicDir, "CV_Martin_Gonzalez_Backend_PHP.pdf");
+  fs.writeFileSync(destPath, pdfBuffer);
+  console.log("PDF ATS generado exitosamente en:", destPath);
+}
+
+createPurePDF();

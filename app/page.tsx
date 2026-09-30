@@ -140,6 +140,13 @@ export default function Home() {
                   <span>➔</span>
                 </a>
 
+                <Link
+                  href="/cv"
+                  className="bg-purple-950/80 hover:bg-purple-900 border border-purple-500/50 text-purple-300 font-semibold px-5 py-3 rounded-xl transition-all flex items-center gap-2"
+                >
+                  <span>📄 Ver / Descargar CV ATS</span>
+                </Link>
+
                 <a
                   href="https://wa.me/542613440973"
                   target="_blank"
@@ -157,6 +164,7 @@ export default function Home() {
                   <span>📋 Copiar Mail</span>
                 </button>
               </div>
+
 
               {/* Personal Quick Stats */}
               <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/5 font-mono text-xs text-gray-400">

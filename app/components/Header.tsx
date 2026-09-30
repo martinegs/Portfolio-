@@ -53,12 +53,20 @@ export default function Header() {
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-2">
             <Link
+              href="/cv"
+              className="px-3.5 py-1.5 text-xs font-mono font-medium text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-500/40 rounded-xl transition-all flex items-center gap-1.5"
+            >
+              <span>📄 Ver CV ATS</span>
+            </Link>
+
+            <Link
               href="/admin"
               className="px-3.5 py-1.5 text-xs font-mono font-medium text-cyan-300 bg-cyan-950/60 hover:bg-cyan-900/80 border border-cyan-500/40 rounded-xl transition-all flex items-center gap-1.5"
             >
               <span>⚙️ Admin</span>
             </Link>
           </div>
+
 
           {/* Mobile Menu Trigger */}
           <button
