@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import PrintButton from "./PrintButton";
 
 export const metadata: Metadata = {
   title: "CV Martin Gonzalez | Desarrollador Backend PHP & Full Stack",
@@ -27,14 +28,7 @@ export default function CVPage() {
             <span>📥 Descargar CV (PDF)</span>
           </a>
 
-          <button
-            onClick={() => {
-              if (typeof window !== "undefined") window.print();
-            }}
-            className="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-2"
-          >
-            <span>🖨️ Imprimir / Guardar PDF</span>
-          </button>
+          <PrintButton />
         </div>
       </div>
 

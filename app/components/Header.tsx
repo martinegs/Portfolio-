@@ -58,14 +58,8 @@ export default function Header() {
             >
               <span>📄 Ver CV ATS</span>
             </Link>
-
-            <Link
-              href="/admin"
-              className="px-3.5 py-1.5 text-xs font-mono font-medium text-cyan-300 bg-cyan-950/60 hover:bg-cyan-900/80 border border-cyan-500/40 rounded-xl transition-all flex items-center gap-1.5"
-            >
-              <span>⚙️ Admin</span>
-            </Link>
           </div>
+
 
 
           {/* Mobile Menu Trigger */}
@@ -97,15 +91,13 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-slate-800">
-              <Link
-                href="/admin"
-                className="block px-4 py-2 text-xs font-mono text-cyan-400 hover:bg-cyan-950/50 rounded-xl"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                ⚙️ Panel de Admin
-              </Link>
-            </div>
+            <Link
+              href="/cv"
+              className="block px-4 py-2.5 text-xs font-semibold text-emerald-400 hover:bg-emerald-950/40 rounded-xl transition-all"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              📄 Ver CV ATS
+            </Link>
           </div>
         )}
       </div>
