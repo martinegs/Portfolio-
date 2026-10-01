@@ -203,28 +203,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Developer Portrait & Interactive Live API Terminal */}
+            {/* Interactive Live API Terminal */}
             <div className="md:col-span-5 space-y-6">
               
-              {/* Profile Avatar */}
-              <div className="relative group max-w-xs mx-auto">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#fcee09] via-[#00f0ff] to-[#ff0055] rounded-none opacity-75 blur group-hover:opacity-100 transition duration-500 animate-tilt" />
-                <div className="relative cyber-panel cyber-cut-corner p-2 bg-[#07080c] border border-[#fcee09]">
-                  <div className="relative h-64 w-full overflow-hidden">
-                    <Image
-                      src="/images/cyberpunk_avatar.jpg"
-                      alt="Martin Gonzalez Profile"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="bg-[#fcee09] text-[#07080c] px-3 py-1 font-mono text-[10px] font-black uppercase flex justify-between items-center mt-2">
-                    <span>// DESARROLLADOR: MARTIN GONZALEZ</span>
-                    <span>BACKEND PHP</span>
-                  </div>
-                </div>
-              </div>
-
               {/* Interactive Live API Console */}
               <div className="cyber-panel cyber-cut-corner p-4 border border-[#00f0ff]/40 bg-[#0d0e15]/95 font-mono text-xs shadow-[0_0_25px_rgba(0,240,255,0.15)] space-y-3">
                 <div className="flex items-center justify-between border-b border-[#1e2436] pb-2">
