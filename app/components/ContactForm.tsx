@@ -73,18 +73,18 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="cyber-panel cyber-cut-corner p-6 sm:p-8 border border-[#00f0ff]/30 bg-[#0d0e15]/90 space-y-5">
       <div className="border-b border-[#1e2436] pb-3 mb-2 flex items-center justify-between">
         <h3 className="text-sm font-bold text-gray-100 font-mono tracking-wider uppercase flex items-center gap-2">
-          <span className="text-[#fcee09]">//</span> CANAL DE DESPACHO DIRECTO
+          <span className="text-[#fcee09]">//</span> FORMULARIO DE CONTACTO DIRECTO
         </h3>
         <span className="text-[10px] text-[#00f0ff] font-mono font-medium flex items-center gap-1">
           <span className="w-2 h-2 rounded-full bg-[#fcee09] animate-hud-blink" />
-          RESPONSE_LATENCY &lt; 24H
+          RESPUESTA RÁPIDA (&lt; 24HS)
         </span>
       </div>
 
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
-          // TU NOMBRE O ENTIDAD CORPORATIVA
+          // TU NOMBRE O EMPRESA
         </label>
         <input
           type="text"
@@ -94,14 +94,14 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           className="w-full px-4 py-3 bg-[#07080c] border border-[#1e2436] text-gray-100 placeholder-slate-600 focus:border-[#fcee09] outline-none transition text-xs font-mono"
-          placeholder="Ej: Arasaka Corp / Sofía Pérez"
+          placeholder="Ej: Sofía Pérez / Empresa Tech"
         />
       </div>
 
       {/* Email */}
       <div>
         <label htmlFor="email" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
-          // CORREO DE RETORNO (EMAIL)
+          // CORREO ELECTRÓNICO (EMAIL)
         </label>
         <input
           type="email"
@@ -118,7 +118,7 @@ export default function ContactForm() {
       {/* Subject */}
       <div>
         <label htmlFor="subject" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
-          // ASUNTO / TRANSMISIÓN
+          // ASUNTO DEL MENSAJE
         </label>
         <input
           type="text"
@@ -135,7 +135,7 @@ export default function ContactForm() {
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
-          // PAYLOAD DEL MENSAJE
+          // MENSAJE / DETALLES
         </label>
         <textarea
           id="message"
@@ -145,7 +145,7 @@ export default function ContactForm() {
           required
           rows={4}
           className="w-full px-4 py-3 bg-[#07080c] border border-[#1e2436] text-gray-100 placeholder-slate-600 focus:border-[#fcee09] outline-none transition resize-none text-xs font-mono"
-          placeholder="Detalles sobre el proyecto, puesto o propuesta..."
+          placeholder="Contame brevemente sobre la propuesta o proyecto..."
         />
       </div>
 
@@ -156,10 +156,10 @@ export default function ContactForm() {
         className="w-full cyber-btn-yellow py-3.5 px-6 disabled:opacity-50 disabled:cursor-not-allowed text-xs uppercase font-mono flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
-          <span>ENVIANDO TRANSMISIÓN...</span>
+          <span>ENVIANDO MENSAJE...</span>
         ) : (
           <>
-            <span>DESPACHAR MENSAJE</span>
+            <span>ENVIAR MENSAJE</span>
             <span>➔</span>
           </>
         )}
@@ -168,12 +168,12 @@ export default function ContactForm() {
       {/* Status Messages */}
       {submitStatus === "success" && (
         <div className="p-3 bg-[#07080c] border border-[#00f0ff] text-[#00f0ff] text-xs text-center font-mono animate-in fade-in">
-          ✓ TRANSMISIÓN ENVIADA CON ÉXITO. RESPUESTA EN CAMINO.
+          ✓ MENSAJE ENVIADO CON ÉXITO. TE RESPONDERÉ LO ANTES POSIBLE.
         </div>
       )}
       {submitStatus === "error" && (
         <div className="p-3 bg-[#07080c] border border-[#ff0055] text-[#ff0055] text-xs text-center font-mono animate-in fade-in">
-          ⚠️ FALLO DE CONEXIÓN DIRECTA. ESCRIBIR A: <a href="mailto:Martinegs2012@gmail.com" className="underline font-bold">Martinegs2012@gmail.com</a>.
+          ⚠️ HUBO UN INCONVENIENTE AL ENVIAR EL FORMULARIO. ESCRIBIME DIRECTAMENTE A: <a href="mailto:Martinegs2012@gmail.com" className="underline font-bold">Martinegs2012@gmail.com</a>.
         </div>
       )}
     </form>

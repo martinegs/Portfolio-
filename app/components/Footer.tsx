@@ -20,7 +20,7 @@ export default function Footer() {
                 MG
               </div>
               <h3 className="text-gray-100 text-sm font-bold tracking-wider font-mono uppercase">
-                MARTIN GONZALEZ // 2077
+                MARTIN GONZALEZ // PORTFOLIO
               </h3>
             </div>
             <p className="text-gray-400 text-xs leading-relaxed font-sans">
@@ -28,14 +28,14 @@ export default function Footer() {
             </p>
             <div className="text-[11px] text-[#00f0ff] font-mono flex items-center gap-1.5 pt-1">
               <span className="w-2 h-2 rounded-full bg-[#fcee09] animate-hud-blink" />
-              MENDOZA, ARGENTINA • NETRUNNER BACKEND
+              MENDOZA, ARGENTINA • DESARROLLADOR BACKEND PHP
             </div>
           </div>
 
           {/* Navigation */}
           <div>
             <h3 className="text-[#fcee09] text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-[#1e2436] pb-2">
-              // NAVEGACIÓN CYBERDECK
+              // NAVEGACIÓN
             </h3>
             <ul className="space-y-2 text-xs text-gray-300 font-mono">
               <li>
@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#habilidades" className="hover:text-[#00f0ff] transition-colors">
-                  // MATRIZ DE STACK
+                  // STACK DE TECNOLOGÍAS
                 </Link>
               </li>
               <li>
@@ -69,7 +69,7 @@ export default function Footer() {
           {/* Contact Info & Social */}
           <div>
             <h3 className="text-[#fcee09] text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-[#1e2436] pb-2">
-              // TRANSMISIÓN DIRECTA
+              // CONTACTO DIRECTO
             </h3>
             <ul className="space-y-2 text-xs text-gray-300 mb-4 font-mono">
               <li>📍 Mendoza, Argentina</li>
@@ -124,8 +124,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[#1e2436] mt-10 pt-6 text-center text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-mono">
-          <p>&copy; {currentYear ?? "2026"} MARTIN GONZALEZ • CYBERPUNK 2077 PORTFOLIO EDITION</p>
-          <p className="text-[#00f0ff]">DESIGNED WITH NEXT.JS & TAILWIND CSS</p>
+          <p>&copy; {currentYear ?? "2026"} MARTIN GONZALEZ • DESARROLLADOR BACKEND & FULL STACK</p>
+          <p className="text-[#00f0ff]">DISEÑADO CON NEXT.JS & TAILWIND CSS</p>
         </div>
       </div>
     </footer>

@@ -28,12 +28,12 @@ export default function Header() {
               <span className="font-mono font-bold text-gray-100 tracking-wider text-xs sm:text-sm group-hover:text-[#fcee09] transition-colors flex items-center gap-2">
                 <span>MARTIN GONZALEZ</span>
                 <span className="text-[9px] bg-[#00f0ff]/20 text-[#00f0ff] border border-[#00f0ff]/40 px-1.5 py-0.5 rounded font-mono">
-                  v2.077
+                  PORTFOLIO
                 </span>
               </span>
               <span className="text-[10px] text-gray-400 font-mono tracking-tight flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#fcee09] animate-hud-blink" />
-                NETRUNNER // BACKEND PHP & FULL STACK
+                DESARROLLADOR BACKEND PHP & FULL STACK
               </span>
             </div>
           </Link>

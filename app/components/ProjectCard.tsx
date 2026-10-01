@@ -29,8 +29,8 @@ export default function ProjectCard({
     <div className="cyber-panel cyber-panel-yellow cyber-cut-corner flex flex-col h-full group relative border border-[#00f0ff]/30 bg-[#0d0e15]/90 hover:border-[#fcee09]/60 transition-all duration-300">
       {/* Accent yellow HUD header bar */}
       <div className="h-1.5 w-full bg-[#fcee09] shadow-[0_0_10px_rgba(252,238,9,0.8)] flex justify-between items-center px-2 text-[9px] font-mono text-[#07080c] font-black uppercase tracking-wider">
-        <span>// SEC_SYS: ENCRYPTED</span>
-        <span>[ 2077 ]</span>
+        <span>// SISTEMA WEB EN PRODUCCIÓN</span>
+        <span>[ VERIFICADO ]</span>
       </div>
 
       {/* Image Container */}
@@ -43,7 +43,7 @@ export default function ProjectCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e15] via-[#0d0e15]/40 to-transparent" />
         
-        {/* Main Cyber Tag */}
+        {/* Main Tech Badge */}
         {technologies[0] && (
           <div className="absolute top-3 right-3 z-10">
             <span className="cyber-tag">
@@ -53,7 +53,7 @@ export default function ProjectCard({
         )}
 
         <div className="absolute bottom-2 left-3 z-10 text-[10px] font-mono text-[#00f0ff] tracking-widest uppercase">
-          // HUD_MODULE :: {title.slice(0, 20)}
+          // PROYECTO :: {title.slice(0, 24)}
         </div>
       </div>
 
