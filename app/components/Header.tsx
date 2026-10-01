@@ -7,43 +7,44 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Experiencia", href: "#experiencia" },
-    { label: "Proyectos", href: "#proyectos" },
-    { label: "Habilidades", href: "#habilidades" },
-    { label: "Contacto", href: "#contacto" },
+    { label: "// INICIO", href: "#inicio" },
+    { label: "// EXPERIENCIA", href: "#experiencia" },
+    { label: "// PROYECTOS", href: "#proyectos" },
+    { label: "// HABILIDADES", href: "#habilidades" },
+    { label: "// CONTACTO", href: "#contacto" },
   ];
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="glass-panel rounded-2xl px-5 py-3 flex justify-between items-center gap-4 bg-slate-950/70 backdrop-blur-xl border border-white/10 shadow-2xl">
+        <div className="cyber-panel cyber-cut-corner px-4 py-2.5 flex justify-between items-center gap-4 bg-[#0d0e15]/90 border border-[#00f0ff]/40 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
           
           {/* Brand */}
           <Link href="#inicio" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-indigo-600 to-purple-600 p-0.5 shadow-lg group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-cyan-400 font-mono font-black text-sm">
-                MG
-              </div>
+            <div className="w-10 h-10 bg-[#fcee09] text-[#07080c] font-mono font-black text-sm flex items-center justify-center shadow-[0_0_15px_rgba(252,238,9,0.5)] cyber-cut-corner-sm group-hover:scale-105 transition-transform">
+              MG
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-gray-100 tracking-tight text-sm sm:text-base group-hover:text-cyan-400 transition-colors">
-                Martin Gonzalez
+              <span className="font-mono font-bold text-gray-100 tracking-wider text-xs sm:text-sm group-hover:text-[#fcee09] transition-colors flex items-center gap-2">
+                <span>MARTIN GONZALEZ</span>
+                <span className="text-[9px] bg-[#00f0ff]/20 text-[#00f0ff] border border-[#00f0ff]/40 px-1.5 py-0.5 rounded font-mono">
+                  v2.077
+                </span>
               </span>
-              <span className="text-[11px] text-gray-400 font-sans tracking-wide flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Mendoza, Argentina • Backend PHP & Full Stack
+              <span className="text-[10px] text-gray-400 font-mono tracking-tight flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#fcee09] animate-hud-blink" />
+                NETRUNNER // BACKEND PHP & FULL STACK
               </span>
             </div>
           </Link>
 
           {/* Navigation Links (Desktop) */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-xl border border-white/5">
+          <nav className="hidden md:flex items-center gap-1 bg-[#07080c]/80 p-1 border border-[#1e2436] font-mono text-xs">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="px-4 py-1.5 text-xs font-semibold text-gray-300 hover:text-white hover:bg-slate-800/80 rounded-lg transition-all"
+                className="px-3 py-1.5 font-bold text-gray-300 hover:text-[#07080c] hover:bg-[#fcee09] transition-all tracking-wider uppercase text-[11px]"
               >
                 {item.label}
               </Link>
@@ -51,20 +52,18 @@ export default function Header() {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/cv"
-              className="px-3.5 py-1.5 text-xs font-mono font-medium text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-500/40 rounded-xl transition-all flex items-center gap-1.5"
+              className="cyber-btn-yellow px-4 py-1.5 text-[11px] flex items-center gap-1.5"
             >
-              <span>📄 Ver CV ATS</span>
+              <span>📄 DESCARGAR CV ATS</span>
             </Link>
           </div>
 
-
-
           {/* Mobile Menu Trigger */}
           <button
-            className="md:hidden p-2 text-gray-300 hover:text-white rounded-lg focus:outline-none"
+            className="md:hidden p-2 text-[#00f0ff] hover:text-[#fcee09] focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -80,12 +79,12 @@ export default function Header() {
 
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-2 glass-panel rounded-2xl p-4 shadow-2xl space-y-2 font-sans animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden mt-2 cyber-panel border border-[#fcee09]/50 p-4 space-y-2 font-mono text-xs animate-in fade-in duration-150">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-2.5 text-xs font-semibold text-gray-200 hover:text-white hover:bg-slate-800/80 rounded-xl transition-all"
+                className="block px-4 py-2 font-bold text-gray-200 hover:text-[#07080c] hover:bg-[#fcee09] transition-all tracking-wider"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -93,10 +92,10 @@ export default function Header() {
             ))}
             <Link
               href="/cv"
-              className="block px-4 py-2.5 text-xs font-semibold text-emerald-400 hover:bg-emerald-950/40 rounded-xl transition-all"
+              className="block px-4 py-2.5 font-bold text-[#fcee09] bg-[#fcee09]/10 border border-[#fcee09]/40 hover:bg-[#fcee09] hover:text-[#07080c] transition-all tracking-wider text-center mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              📄 Ver CV ATS
+              📄 VER CV ATS
             </Link>
           </div>
         )}
@@ -104,7 +103,3 @@ export default function Header() {
     </header>
   );
 }
-
-
-
-

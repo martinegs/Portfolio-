@@ -10,57 +10,57 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-slate-950 border-t border-white/5 text-gray-400 py-12 relative overflow-hidden font-sans text-xs">
+    <footer className="bg-[#07080c] border-t border-[#00f0ff]/30 text-gray-400 py-12 relative overflow-hidden font-mono text-xs">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-mono font-bold text-xs">
+              <div className="w-8 h-8 bg-[#fcee09] text-[#07080c] font-black text-xs flex items-center justify-center font-mono">
                 MG
               </div>
-              <h3 className="text-gray-100 text-sm font-bold tracking-tight font-sans">
-                Martin Gonzalez
+              <h3 className="text-gray-100 text-sm font-bold tracking-wider font-mono uppercase">
+                MARTIN GONZALEZ // 2077
               </h3>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed">
-              Desarrollador Backend PHP especializado en Laravel & CodeIgniter 4. Creación de lógica robusta, optimización de consultas MySQL e integración de vistas con Vue.js y Tailwind CSS.
+            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+              Desarrollador Backend PHP especializado en Laravel & CodeIgniter 4. Arquitectura de software, optimización SQL e integración de aplicaciones reactivas con Vue.js y Tailwind.
             </p>
-            <div className="text-[11px] text-emerald-400 font-mono flex items-center gap-1.5 pt-1">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Mendoza, Argentina • Disponible para proyectos
+            <div className="text-[11px] text-[#00f0ff] font-mono flex items-center gap-1.5 pt-1">
+              <span className="w-2 h-2 rounded-full bg-[#fcee09] animate-hud-blink" />
+              MENDOZA, ARGENTINA • NETRUNNER BACKEND
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-gray-200 text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              Navegación
+            <h3 className="text-[#fcee09] text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-[#1e2436] pb-2">
+              // NAVEGACIÓN CYBERDECK
             </h3>
-            <ul className="space-y-2 text-xs text-gray-300 font-sans">
+            <ul className="space-y-2 text-xs text-gray-300 font-mono">
               <li>
-                <Link href="#inicio" className="hover:text-cyan-400 transition-colors">
-                  Inicio
+                <Link href="#inicio" className="hover:text-[#00f0ff] transition-colors">
+                  // INICIO
                 </Link>
               </li>
               <li>
-                <Link href="#experiencia" className="hover:text-cyan-400 transition-colors">
-                  Experiencia Laboral
+                <Link href="#experiencia" className="hover:text-[#00f0ff] transition-colors">
+                  // EXPERIENCIA LABORAL
                 </Link>
               </li>
               <li>
-                <Link href="#proyectos" className="hover:text-cyan-400 transition-colors">
-                  Proyectos Destacados
+                <Link href="#proyectos" className="hover:text-[#00f0ff] transition-colors">
+                  // PROYECTOS DESTACADOS
                 </Link>
               </li>
               <li>
-                <Link href="#habilidades" className="hover:text-cyan-400 transition-colors">
-                  Stack Tecnológico
+                <Link href="#habilidades" className="hover:text-[#00f0ff] transition-colors">
+                  // MATRIZ DE STACK
                 </Link>
               </li>
               <li>
-                <Link href="#contacto" className="hover:text-cyan-400 transition-colors">
-                  Contacto
+                <Link href="#contacto" className="hover:text-[#00f0ff] transition-colors">
+                  // CONTACTO DIRECTO
                 </Link>
               </li>
             </ul>
@@ -68,16 +68,16 @@ export default function Footer() {
 
           {/* Contact Info & Social */}
           <div>
-            <h3 className="text-gray-200 text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              Contacto Directo
+            <h3 className="text-[#fcee09] text-xs font-mono font-bold uppercase tracking-wider mb-4 border-b border-[#1e2436] pb-2">
+              // TRANSMISIÓN DIRECTA
             </h3>
-            <ul className="space-y-2 text-xs text-gray-300 mb-4 font-sans">
+            <ul className="space-y-2 text-xs text-gray-300 mb-4 font-mono">
               <li>📍 Mendoza, Argentina</li>
               <li>
                 ✉️{" "}
                 <a
                   href="mailto:Martinegs2012@gmail.com"
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-[#00f0ff] transition-colors"
                 >
                   Martinegs2012@gmail.com
                 </a>
@@ -88,7 +88,7 @@ export default function Footer() {
                   href="https://wa.me/542613440973"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors font-mono"
+                  className="hover:text-[#00f0ff] transition-colors text-[#00f0ff]"
                 >
                   +54 2613440973 (WhatsApp)
                 </a>
@@ -101,7 +101,7 @@ export default function Footer() {
                 href="https://github.com/martinegs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-gray-300 hover:text-white hover:border-cyan-500/50 transition-all"
+                className="w-9 h-9 bg-[#07080c] border border-[#00f0ff]/50 flex items-center justify-center text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#07080c] transition-all"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -112,7 +112,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/martin-gonzalez7/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-gray-300 hover:text-white hover:border-cyan-500/50 transition-all"
+                className="w-9 h-9 bg-[#07080c] border border-[#00f0ff]/50 flex items-center justify-center text-[#00f0ff] hover:bg-[#00f0ff] hover:text-[#07080c] transition-all"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -123,15 +123,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-10 pt-6 text-center text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-sans">
-          <p>&copy; {currentYear ?? "2026"} Martin Gonzalez • Desarrollador Backend & Full Stack</p>
-          <p className="text-gray-400">Diseñado con Next.js & Tailwind CSS</p>
+        <div className="border-t border-[#1e2436] mt-10 pt-6 text-center text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-mono">
+          <p>&copy; {currentYear ?? "2026"} MARTIN GONZALEZ • CYBERPUNK 2077 PORTFOLIO EDITION</p>
+          <p className="text-[#00f0ff]">DESIGNED WITH NEXT.JS & TAILWIND CSS</p>
         </div>
       </div>
     </footer>
   );
 }
-
-
-
-

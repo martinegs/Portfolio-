@@ -70,21 +70,21 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 bg-slate-950/70 shadow-2xl space-y-5">
-      <div className="border-b border-slate-800 pb-3 mb-2 flex items-center justify-between">
-        <h3 className="text-base font-bold text-gray-100 font-sans tracking-tight flex items-center gap-2">
-          <span>💬</span> Enviame un mensaje directo
+    <form onSubmit={handleSubmit} className="cyber-panel cyber-cut-corner p-6 sm:p-8 border border-[#00f0ff]/30 bg-[#0d0e15]/90 space-y-5">
+      <div className="border-b border-[#1e2436] pb-3 mb-2 flex items-center justify-between">
+        <h3 className="text-sm font-bold text-gray-100 font-mono tracking-wider uppercase flex items-center gap-2">
+          <span className="text-[#fcee09]">//</span> CANAL DE DESPACHO DIRECTO
         </h3>
-        <span className="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          Respuesta rápida (&lt; 24hs)
+        <span className="text-[10px] text-[#00f0ff] font-mono font-medium flex items-center gap-1">
+          <span className="w-2 h-2 rounded-full bg-[#fcee09] animate-hud-blink" />
+          RESPONSE_LATENCY &lt; 24H
         </span>
       </div>
 
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 font-mono">
-          Tu Nombre o Empresa
+        <label htmlFor="name" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
+          // TU NOMBRE O ENTIDAD CORPORATIVA
         </label>
         <input
           type="text"
@@ -93,15 +93,15 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-slate-900/90 border border-slate-800 rounded-xl text-gray-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 outline-none transition text-xs font-sans"
-          placeholder="Ej: Sofía Pérez / Tech Solutions"
+          className="w-full px-4 py-3 bg-[#07080c] border border-[#1e2436] text-gray-100 placeholder-slate-600 focus:border-[#fcee09] outline-none transition text-xs font-mono"
+          placeholder="Ej: Arasaka Corp / Sofía Pérez"
         />
       </div>
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 font-mono">
-          Tu Correo Electrónico
+        <label htmlFor="email" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
+          // CORREO DE RETORNO (EMAIL)
         </label>
         <input
           type="email"
@@ -110,15 +110,15 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-slate-900/90 border border-slate-800 rounded-xl text-gray-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 outline-none transition text-xs font-sans"
+          className="w-full px-4 py-3 bg-[#07080c] border border-[#1e2436] text-gray-100 placeholder-slate-600 focus:border-[#fcee09] outline-none transition text-xs font-mono"
           placeholder="sofia@empresa.com"
         />
       </div>
 
       {/* Subject */}
       <div>
-        <label htmlFor="subject" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 font-mono">
-          Asunto del Mensaje
+        <label htmlFor="subject" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
+          // ASUNTO / TRANSMISIÓN
         </label>
         <input
           type="text"
@@ -127,15 +127,15 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-slate-900/90 border border-slate-800 rounded-xl text-gray-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 outline-none transition text-xs font-sans"
-          placeholder="Ej: Oportunidad laboral Backend PHP / Consulta de proyecto"
+          className="w-full px-4 py-3 bg-[#07080c] border border-[#1e2436] text-gray-100 placeholder-slate-600 focus:border-[#fcee09] outline-none transition text-xs font-mono"
+          placeholder="Ej: Oportunidad Laboral Backend PHP / Desarrollo Laravel"
         />
       </div>
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 font-mono">
-          Mensaje
+        <label htmlFor="message" className="block text-[11px] font-bold text-[#00f0ff] uppercase tracking-wider mb-2 font-mono">
+          // PAYLOAD DEL MENSAJE
         </label>
         <textarea
           id="message"
@@ -144,8 +144,8 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={4}
-          className="w-full px-4 py-3 bg-slate-900/90 border border-slate-800 rounded-xl text-gray-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 outline-none transition resize-none text-xs font-sans"
-          placeholder="Contame brevemente sobre la propuesta o idea..."
+          className="w-full px-4 py-3 bg-[#07080c] border border-[#1e2436] text-gray-100 placeholder-slate-600 focus:border-[#fcee09] outline-none transition resize-none text-xs font-mono"
+          placeholder="Detalles sobre el proyecto, puesto o propuesta..."
         />
       </div>
 
@@ -153,13 +153,13 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-xs uppercase tracking-wider font-mono flex items-center justify-center gap-2"
+        className="w-full cyber-btn-yellow py-3.5 px-6 disabled:opacity-50 disabled:cursor-not-allowed text-xs uppercase font-mono flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
-          <span>Enviando mensaje...</span>
+          <span>ENVIANDO TRANSMISIÓN...</span>
         ) : (
           <>
-            <span>Enviar Mensaje</span>
+            <span>DESPACHAR MENSAJE</span>
             <span>➔</span>
           </>
         )}
@@ -167,19 +167,15 @@ export default function ContactForm() {
 
       {/* Status Messages */}
       {submitStatus === "success" && (
-        <div className="p-4 bg-emerald-950/60 border border-emerald-500/50 rounded-xl text-emerald-300 text-xs text-center font-sans animate-in fade-in">
-          ✓ ¡Mensaje enviado con éxito! Te responderé lo antes posible.
+        <div className="p-3 bg-[#07080c] border border-[#00f0ff] text-[#00f0ff] text-xs text-center font-mono animate-in fade-in">
+          ✓ TRANSMISIÓN ENVIADA CON ÉXITO. RESPUESTA EN CAMINO.
         </div>
       )}
       {submitStatus === "error" && (
-        <div className="p-4 bg-red-950/60 border border-red-500/50 rounded-xl text-red-300 text-xs text-center font-sans animate-in fade-in">
-          ⚠️ Ocurrió una interrupción. Escribime directamente a: <a href="mailto:Martinegs2012@gmail.com" className="underline font-bold">Martinegs2012@gmail.com</a>.
+        <div className="p-3 bg-[#07080c] border border-[#ff0055] text-[#ff0055] text-xs text-center font-mono animate-in fade-in">
+          ⚠️ FALLO DE CONEXIÓN DIRECTA. ESCRIBIR A: <a href="mailto:Martinegs2012@gmail.com" className="underline font-bold">Martinegs2012@gmail.com</a>.
         </div>
       )}
     </form>
   );
 }
-
-
-
-
